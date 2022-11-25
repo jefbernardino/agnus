@@ -36,7 +36,7 @@ onMounted(setEntries)
           <td>{{ item.ativo }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
-              <v-btn elevation="0" color="primary" size="small">Visualizar</v-btn>
+              <v-btn elevation="0" color="primary" size="small" :to="`/vendedores/view/${item.id}`">Visualizar</v-btn>
               <v-btn elevation="0" color="warning" size="small">Editar</v-btn>
               <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
             </div>

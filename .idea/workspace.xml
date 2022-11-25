@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="" />
+    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/pedidos/view/[...slug].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/vendedores/view/[...slug].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/invoices/show.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/sellers/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scss/_override.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/_override.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pedidos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedidos/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/vendedores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/shared_utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/shared_utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/clients",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/products",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -47,18 +61,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server/api/clients" />
-      <recent name="$PROJECT_DIR$/pages/clientes/view" />
-      <recent name="$PROJECT_DIR$/pages/clientes" />
-      <recent name="$PROJECT_DIR$/server/api/admin" />
-      <recent name="$PROJECT_DIR$/pages/administradores" />
+      <recent name="$PROJECT_DIR$/server/api/products" />
+      <recent name="$PROJECT_DIR$/server/api/invoices" />
+      <recent name="$PROJECT_DIR$/pages/pedidos" />
+      <recent name="$PROJECT_DIR$/server/api/sellers" />
+      <recent name="$PROJECT_DIR$/pages/vendedores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/api/invoices" />
       <recent name="$PROJECT_DIR$/server/api/products" />
       <recent name="$PROJECT_DIR$/pages/login" />
       <recent name="$PROJECT_DIR$/pages/vendedores" />
       <recent name="$PROJECT_DIR$/pages/produtos" />
-      <recent name="$PROJECT_DIR$/pages/pedidos" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -75,7 +89,8 @@
       <workItem from="1667561380590" duration="648000" />
       <workItem from="1667867216344" duration="1920000" />
       <workItem from="1668511763102" duration="13850000" />
-      <workItem from="1668730153286" duration="12676000" />
+      <workItem from="1668730153286" duration="12736000" />
+      <workItem from="1669331332110" duration="14153000" />
     </task>
     <servers />
   </component>

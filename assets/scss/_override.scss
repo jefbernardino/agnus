@@ -28,6 +28,9 @@ html {
     width: 100%;
     box-shadow: $box-shadow !important;
   }
+  .v-card-subtitle {
+    opacity: 1;
+  }
   .v-btn {
     text-transform: capitalize;
     letter-spacing: $btn-letter-spacing;

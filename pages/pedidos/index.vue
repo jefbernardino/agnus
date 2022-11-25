@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { dateToBr, formatCurrency } from "~/utils/shared_utils";
 
 const entries = ref([]);
 
@@ -28,6 +29,7 @@ onMounted(setEntries)
           <th class="text-left">Data do pedido</th>
           <th class="text-left">Cliente</th>
           <th class="text-left">Valor</th>
+          <!-- <th class="text-left">Observação</th> -->
           <th class="text-left">Status</th>
           <th class="text-left">Ações</th>
         </tr>
@@ -35,15 +37,16 @@ onMounted(setEntries)
         <tbody>
         <tr v-for="item in entries" :key="item.id">
           <!-- TODO: Criar os relacionamentos -->
-          <td>{{ item.vendedor_id }}</td>
           <td>{{ item.empresa_faturar }}</td>
-          <td>{{ item.data }}</td>
-          <td>{{ item.cliente_id }}</td>
-          <td>{{ item.valor }}</td>
+          <td>{{ item.vendedor_nome }}</td>
+          <td>{{ dateToBr(item.data) }}</td>
+          <td>{{ item.cliente_nome }}</td>
+          <td>{{ formatCurrency(item.valor_total) }}</td>
+          <!-- <td>{{ item.observacao }}</td> -->
           <td>{{ item.status }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
-              <v-btn elevation="0" color="primary" size="small">Visualizar</v-btn>
+              <v-btn elevation="0" color="primary" size="small" :to="`/pedidos/view/${item.id}`">Visualizar</v-btn>
               <v-btn elevation="0" color="warning" size="small">Editar</v-btn>
               <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
             </div>

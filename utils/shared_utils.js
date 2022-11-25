@@ -1,3 +1,4 @@
+import moment from 'moment'
 export const DEFAULT_LOCALE = 'pt-BR'
 
 const CURRENCY_FORMAT = Intl.NumberFormat(DEFAULT_LOCALE, {
@@ -8,7 +9,7 @@ const CURRENCY_FORMAT = Intl.NumberFormat(DEFAULT_LOCALE, {
 })
 
 export const formatCurrency = (value) => {
-  let formattedValue = CURRENCY_FORMAT.format(value)
+  let formattedValue = CURRENCY_FORMAT.format(Math.floor(value ? value : 0))
   if (formattedValue.charAt(0) === '-') {
     const index = formattedValue.search(/\d/)
     formattedValue = `${formattedValue.slice(1, index)}-${formattedValue.slice(
@@ -20,4 +21,8 @@ export const formatCurrency = (value) => {
 
 export const isActive = (status) => {
   return status === '1' ? 'Sim' : 'Não'
+}
+
+export const dateToBr = (data) => {
+  return moment(data).format('DD/MM/YYYY')
 }
