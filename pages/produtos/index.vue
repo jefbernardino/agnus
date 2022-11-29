@@ -27,8 +27,8 @@ onMounted(setEntries)
           <th class="text-left">Imagem</th>
           <th class="text-left">Nome</th>
           <th class="text-left">Tipo</th>
-          <th class="text-left">Preço</th>
-          <th class="text-left">Ativo</th>
+          <th class="text-right">Preço</th>
+          <th class="text-center">Ativo</th>
           <th class="text-left">Ações</th>
         </tr>
         </thead>
@@ -40,8 +40,8 @@ onMounted(setEntries)
           </td>
           <td>{{ item.nome }}</td>
           <td>{{ item.tipo }}</td>
-          <td>{{ formatCurrency(item.preco) }}</td>
-          <td>{{ isActive(item.ativo) }}</td>
+          <td class="text-right">{{ formatCurrency(item.preco) }}</td>
+          <td class="text-center">{{ isActive(item.ativo) }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
               <v-btn elevation="0" color="primary" size="small" :to="`/produtos/view/${item.id}`">Visualizar</v-btn>

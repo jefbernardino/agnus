@@ -26,9 +26,9 @@ onMounted(setEntries)
         <tr>
           <th class="text-left">Empresa</th>
           <th class="text-left">Vendedor</th>
-          <th class="text-left">Data do pedido</th>
-          <th class="text-left">Cliente</th>
-          <th class="text-left">Valor</th>
+          <th class="text-left">Data pedido</th>
+          <th class="text-left" width="20%">Cliente</th>
+          <th class="text-right">Valor</th>
           <!-- <th class="text-left">Observação</th> -->
           <th class="text-left">Status</th>
           <th class="text-left">Ações</th>
@@ -41,7 +41,7 @@ onMounted(setEntries)
           <td>{{ item.vendedor_nome }}</td>
           <td>{{ dateToBr(item.data) }}</td>
           <td>{{ item.cliente_nome }}</td>
-          <td>{{ formatCurrency(item.valor_total) }}</td>
+          <td class="text-right">{{ formatCurrency(item.valor_total) }}</td>
           <!-- <td>{{ item.observacao }}</td> -->
           <td>{{ item.status }}</td>
           <td>

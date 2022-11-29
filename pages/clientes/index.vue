@@ -24,19 +24,19 @@ onMounted(setEntries)
       <v-table fixed-header height="72vh">
         <thead>
         <tr>
-          <th class="text-left">Vendedor</th>
-          <th class="text-left">Nome</th>
-          <th class="text-left">Email</th>
-          <th class="text-left">Ativo</th>
+          <th class="text-left" width="22%">Nome</th>
+          <th class="text-left" width="20%">Email</th>
+          <th class="text-left" width="22%">Vendedor</th>
+          <th class="text-center">Ativo</th>
           <th class="text-left">Ações</th>
         </tr>
         </thead>
         <tbody>
         <tr v-for="item in entries" :key="item.name">
-          <td>{{ item.vendedor_id }}</td>
           <td>{{ item.nome }}</td>
           <td>{{ item.email }}</td>
-          <td>{{ isActive(item.ativo) }}</td>
+          <td>{{ item.vendedor }}</td>
+          <td class="text-center">{{ isActive(item.ativo) }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
               <v-btn elevation="0" color="primary" size="small" :to="`/clientes/view/${item.id}`">Visualizar</v-btn>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { isActive } from "~/utils/shared_utils";
 
 const entries = ref([]);
 
@@ -25,7 +26,7 @@ onMounted(setEntries)
         <tr>
           <th class="text-left">Nome</th>
           <th class="text-left">Tipo</th>
-          <th class="text-left">Ativo</th>
+          <th class="text-center">Ativo</th>
           <th class="text-left">Ações</th>
         </tr>
         </thead>
@@ -33,7 +34,7 @@ onMounted(setEntries)
         <tr v-for="item in entries" :key="item.name">
           <td>{{ item.nome }}</td>
           <td>{{ item.tipo }}</td>
-          <td>{{ item.ativo }}</td>
+          <td class="text-center">{{ isActive(item.ativo) }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
               <v-btn elevation="0" color="primary" size="small" :to="`/vendedores/view/${item.id}`">Visualizar</v-btn>
