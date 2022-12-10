@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "http";
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
+    // @ts-ignore
     const [rows, fields] = await req["db"].execute("" +
         "SELECT p.*, c.nome AS cliente_nome, v.nome AS vendedor_nome, " +
         "(SELECT SUM(php.valor * php.quantidade)) AS valor_total " +

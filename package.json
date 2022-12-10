@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@mdi/font": "^6.7.96",
+    "@vuepic/vue-datepicker": "^3.5.3",
     "moment": "^2.29.4",
     "sass": "^1.53.0",
     "vue": "^3.2.34",
+    "vue-currency-input": "^3.0.2",
     "vue-google-charts": "^1.1.0",
     "vuetify": "3.0.0"
   },

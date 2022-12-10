@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/pedidos/novo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedidos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedidos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/vendedores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/clients/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pedidos/novo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,24 +49,25 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/api/products" />
-      <recent name="$PROJECT_DIR$/server/api/invoices" />
       <recent name="$PROJECT_DIR$/pages/pedidos" />
+      <recent name="$PROJECT_DIR$/server/api/invoices" />
       <recent name="$PROJECT_DIR$/server/api/sellers" />
       <recent name="$PROJECT_DIR$/pages/vendedores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/novo_pedido" />
       <recent name="$PROJECT_DIR$/server/api/invoices" />
       <recent name="$PROJECT_DIR$/server/api/products" />
       <recent name="$PROJECT_DIR$/pages/login" />
       <recent name="$PROJECT_DIR$/pages/vendedores" />
-      <recent name="$PROJECT_DIR$/pages/produtos" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -88,7 +88,14 @@
       <workItem from="1669331332110" duration="14153000" />
       <workItem from="1669547584599" duration="270000" />
       <workItem from="1669684376072" duration="41000" />
-      <workItem from="1669684464236" duration="5206000" />
+      <workItem from="1669684464236" duration="5395000" />
+      <workItem from="1669853088357" duration="7152000" />
+      <workItem from="1670086069609" duration="433000" />
+      <workItem from="1670086998283" duration="309000" />
+      <workItem from="1670087345713" duration="12454000" />
+      <workItem from="1670279997072" duration="128000" />
+      <workItem from="1670446723462" duration="51000" />
+      <workItem from="1670680865661" duration="1182000" />
     </task>
     <servers />
   </component>
