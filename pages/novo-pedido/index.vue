@@ -21,7 +21,7 @@ onMounted(setEntries)
 export default {
   data() {
     return {
-      valid: false,
+      disabledForm: true,
       formData: {
         cliente_id: '',
         prazo_pagamento: '',
@@ -32,19 +32,68 @@ export default {
         produtos: [],
       }
     }
-  }
+  },
+  methods: {
+    debounce(func, timeout = 500){
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    },
+    async validate() {
+      this.disabledForm =
+        this.formData.prazo_pagamento !== '' &&
+        this.formData.data !== '' &&
+        this.formData.ipi !== '' &&
+        this.formData.empresa !== '' &&
+        this.formData.produtos.length > 0
+    },
+    async setTicknessValue(inputValue, indexValue, item) {
+      let value = isNaN(inputValue) ? inputValue.target.value : inputValue
+      this.formData.produtos[indexValue] = {
+        ...this.formData.produtos[indexValue],
+        id: item.id,
+        nome: item.nome,
+        espessura: value,
+      }
+      await this.validate();
+    },
+    async setQuantityValue(inputValue, indexValue, item) {
+      let value = isNaN(inputValue) ? inputValue.target.value : inputValue
+      this.formData.produtos[indexValue] = {
+        ...this.formData.produtos[indexValue],
+        id: item.id,
+        nome: item.nome,
+        quantidade: value,
+      }
+    },
+    async setPriceValue(inputValue, indexValue, item) {
+      let value = isNaN(inputValue) ? inputValue.target.value : inputValue
+      this.formData.produtos[indexValue] = {
+        ...this.formData.produtos[indexValue],
+        id: item.id,
+        nome: item.nome,
+        preco: value,
+      }
+    },
+  },
 }
 </script>
 
 <template>
-  <v-form v-model="valid">
-    <pre>{{ valid }}</pre>
-    <pre>{{ formData }}</pre>
+  <v-form v-model="disabledForm">
     <v-card>
       <v-card-text>
         <h2 class="mb-4 mt-4">Faça seu pedido</h2>
         <h4 class="mb-4">Preencha os campos abaixo corretamente:</h4>
 
+        <v-row>
+          <v-col>
+            <pre>{{ disabledForm }}</pre>
+            <pre>{{ formData }}</pre>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col cols="12" md="3">
             <v-select
@@ -60,6 +109,7 @@ export default {
                 variant="outlined"
                 density="comfortable"
                 single-line
+                @update:modelValue="validate()"
             ></v-select>
           </v-col>
 
@@ -77,6 +127,7 @@ export default {
                 variant="outlined"
                 density="comfortable"
                 single-line
+                @update:modelValue="validate()"
             ></v-select>
           </v-col>
 
@@ -87,6 +138,7 @@ export default {
                 variant="outlined"
                 density="comfortable"
                 required
+                @change="validate()"
             ></v-text-field>
           </v-col>
 
@@ -98,6 +150,7 @@ export default {
                 variant="outlined"
                 density="comfortable"
                 required
+                @change="validate()"
             ></v-text-field>
           </v-col>
 
@@ -115,6 +168,7 @@ export default {
                 variant="outlined"
                 density="comfortable"
                 single-line
+                @update:modelValue="validate()"
             ></v-select>
           </v-col>
         </v-row>
@@ -139,7 +193,6 @@ export default {
               <td>{{ item.nome }}</td>
               <td>
                 <CurrencyInput
-                  v-model="formData.produtos[index]"
                   :name="`formData.produtos[${index}]['espessura']`"
                   :options="{
                     locale: 'pt-BR',
@@ -156,11 +209,11 @@ export default {
                     useGrouping: true,
                     accountingSign: false
                   }"
+                  @blur="setTicknessValue($event, index, item)"
                 />
               </td>
               <td>
                 <CurrencyInput
-                  v-model="formData.produtos[index]"
                   :name="`formData.produtos[${index}]['quantidade']`"
                   :options="{
                     locale: 'pt-BR',
@@ -173,11 +226,11 @@ export default {
                     useGrouping: true,
                     accountingSign: false
                   }"
+                  @blur="setQuantityValue($event, index, item)"
                 />
               </td>
               <td>
                 <CurrencyInput
-                  v-model="formData.produtos[index]"
                   :name="`formData.produtos[${index}]['preco']`"
                   :options="{
                     locale: 'pt-BR',
@@ -190,6 +243,7 @@ export default {
                     useGrouping: true,
                     accountingSign: false,
                   }"
+                  @blur="setPriceValue($event, index, item)"
                 />
               </td>
             </tr>
@@ -206,7 +260,7 @@ export default {
             </tr>
             <tr>
               <td colspan="5" class="text-right">
-                <v-btn class="mt-5" color="green" prepend-icon="mdi-check" :disabled="valid">
+                <v-btn class="mt-5" color="green" prepend-icon="mdi-check" :disabled="disabledForm">
                   Salvar pedido
                 </v-btn>
               </td>

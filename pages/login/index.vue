@@ -19,6 +19,7 @@
             v-model="password"
             :readonly="loading"
             :rules="[required]"
+            type="password"
             clearable
             label="Senha"
             placeholder="Insira sua senha"
@@ -42,6 +43,10 @@
 </template>
 
 <script>
+// import * as AgnusApi from '@/apis/agnus-api'
+
+import { dataToURLSearchParams } from "~/utils/shared_utils";
+
 definePageMeta({
   layout: "blank",
 });
@@ -55,10 +60,42 @@ export default {
     loading: false,
   }),
   methods: {
-    onSubmit () {
+    async asyncData() {
+      const ip = await this.$api.get('http://icanhazip.com')
+      console.log('IP >>> ', ip)
+    },
+    async onSubmit () {
       if (!this.form) return
 
       this.loading = true
+
+      // admin
+      // megalu
+
+      // jeferson
+      // 96254600
+      console.log('this.form', this.form)
+      console.log('this.email', this.email)
+      console.log('this.password', this.password)
+
+      // const { response } = await AgnusApi.login({
+      //   'data[Vendedor][login]': this.email,
+      //   'data[Vendedor][senha]': this.password,
+      // })
+      // console.log('response >> ', response)
+
+      const ip = await this.$api.post(
+          'https://agnusplast.com.br/pedidos/vendedor',
+          dataToURLSearchParams({
+            'data[Vendedor][login]': this.email,
+            'data[Vendedor][senha]': this.password,
+            // email: this.email,
+            // password: this.password,
+          })
+      )
+      console.log('IP >>> ', ip)
+
+      this.loading = false
 
       setTimeout(() => (this.loading = false), 2000)
     },

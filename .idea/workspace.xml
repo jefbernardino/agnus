@@ -5,11 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/apis/agnus-api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apis/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/shared/ImagePlaceholder.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/axios.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/admin/edit.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middleware/cors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layoutComponents/sidebar/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/layoutComponents/sidebar/Sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/shared/CurrencyInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/shared/CurrencyInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedidos/novo.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/invoices/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middleware/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/novo_pedido/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/shared_utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/shared_utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +32,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
       </list>
     </option>
@@ -37,30 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jars/Projects/agnus/server/api/products&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/pages/administradores",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/administradores" />
+      <recent name="$PROJECT_DIR$/server/api/admin" />
       <recent name="$PROJECT_DIR$/server/api/products" />
       <recent name="$PROJECT_DIR$/pages/pedidos" />
       <recent name="$PROJECT_DIR$/server/api/invoices" />
-      <recent name="$PROJECT_DIR$/server/api/sellers" />
-      <recent name="$PROJECT_DIR$/pages/vendedores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/novo_pedido" />
@@ -95,7 +108,12 @@
       <workItem from="1670087345713" duration="12454000" />
       <workItem from="1670279997072" duration="128000" />
       <workItem from="1670446723462" duration="51000" />
-      <workItem from="1670680865661" duration="1182000" />
+      <workItem from="1670680865661" duration="4299000" />
+      <workItem from="1671070032751" duration="4160000" />
+      <workItem from="1671150261494" duration="39000" />
+      <workItem from="1672878672320" duration="8139000" />
+      <workItem from="1673312529638" duration="5899000" />
+      <workItem from="1676337491032" duration="7874000" />
     </task>
     <servers />
   </component>

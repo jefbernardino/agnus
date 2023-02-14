@@ -20,9 +20,13 @@ export const formatCurrency = (value) => {
 }
 
 export const isActive = (status) => {
-  return status === '1' ? 'Sim' : 'Não'
+  return status.toString() === '1' ? 'Sim' : 'Não'
 }
 
 export const dateToBr = (data) => {
   return moment(data).format('DD/MM/YYYY')
+}
+
+export const dataToURLSearchParams = (data) => {
+  return new URLSearchParams(data)
 }

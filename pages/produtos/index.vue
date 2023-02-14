@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { formatCurrency, isActive } from "~/utils/shared_utils";
+import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 
 const entries = ref([]);
 
@@ -35,8 +36,7 @@ onMounted(setEntries)
         <tbody>
         <tr v-for="item in entries" :key="item.id">
           <td>
-            <!-- TODO: componente imagem -->
-            <img v-show="item.imagem !== null" :src="`https://agnusplast.com.br/pedidos/img/produtos/imagem/${item.imagem}`" :alt="item.nome" height="60" />
+            <ImagePlaceholder folder="produtos/imagem" :name="item.nome" :filename="item.imagem" />
           </td>
           <td>{{ item.nome }}</td>
           <td>{{ item.tipo }}</td>

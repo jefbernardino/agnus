@@ -10,6 +10,7 @@ export default defineNuxtConfig({
             database: 'agnus365_novosite',
         },
     },
+    target: 'static',
     ssr: false,
     build: {
         extractCSS: false,

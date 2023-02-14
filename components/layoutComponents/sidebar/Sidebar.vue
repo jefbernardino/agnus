@@ -30,12 +30,7 @@ const sidebarMenu = ref(sidebarItems);
           <!-- ---------------------------------------------- -->
           <!---Single Item-->
           <!-- ---------------------------------------------- -->
-          <v-list-item :to="item.to" rounded="lg" class="mb-1">
-            <v-avatar start class="v-list-item-avatar--start">
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-avatar>
-            <v-list-item-title v-text="item.title"></v-list-item-title>
-          </v-list-item>
+          <v-list-item :to="item.to" :prepend-icon="item.icon" :title="item.title" rounded="lg" class="mb-1"></v-list-item>
         </template>
       </v-list>
     </div>
