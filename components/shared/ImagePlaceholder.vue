@@ -5,7 +5,6 @@
       :alt="name"
       class="my-2"
       height="60"
-      width="60"
   />
 </template>
 

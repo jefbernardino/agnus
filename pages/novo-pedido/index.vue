@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import CurrencyInput from "~/components/shared/CurrencyInput";
 // import Datepicker from "~/components/shared/Datepicker";
 
@@ -187,7 +188,7 @@ export default {
             <tr v-for="(item, index) in entries" :key="item.id">
               <td>
                 <v-avatar size="60">
-                  <img v-show="item.imagem !== null" :src="`https://agnusplast.com.br/pedidos/img/produtos/imagem/${item.imagem}`" :alt="item.nome" height="60" />
+                  <ImagePlaceholder folder="produtos/imagem" :name="item.nome" :filename="item.imagem" />
                 </v-avatar>
               </td>
               <td>{{ item.nome }}</td>

@@ -6,6 +6,14 @@
           @submit.prevent="onSubmit"
       >
         <img src="~/assets/images/logo.png" alt="Agnus Plast" />
+        <v-radio-group v-model="profile" inline>
+          <template v-slot:label>
+            <div>Qual o perfil de seu usuário?</div>
+          </template>
+          <v-radio label="Administrador" value="administrador"></v-radio>
+          <v-radio label="Vendedor" value="vendedor"></v-radio>
+        </v-radio-group>
+
         <v-text-field
             v-model="email"
             :readonly="loading"
@@ -44,7 +52,7 @@
 
 <script>
 // import * as AgnusApi from '@/apis/agnus-api'
-
+import { MD5 } from "md5-js-tools";
 import { dataToURLSearchParams } from "~/utils/shared_utils";
 
 definePageMeta({
@@ -55,6 +63,7 @@ export default {
   name: "login",
   data: () => ({
     form: false,
+    profile: 'administrador',
     email: null,
     password: null,
     loading: false,
@@ -77,26 +86,20 @@ export default {
       console.log('this.form', this.form)
       console.log('this.email', this.email)
       console.log('this.password', this.password)
+      console.log('this.password', MD5.generate(this.password))
 
-      // const { response } = await AgnusApi.login({
-      //   'data[Vendedor][login]': this.email,
-      //   'data[Vendedor][senha]': this.password,
-      // })
-      // console.log('response >> ', response)
-
-      const ip = await this.$api.post(
-          'https://agnusplast.com.br/pedidos/vendedor',
-          dataToURLSearchParams({
-            'data[Vendedor][login]': this.email,
-            'data[Vendedor][senha]': this.password,
-            // email: this.email,
-            // password: this.password,
-          })
-      )
-      console.log('IP >>> ', ip)
+      let responseUrl;
+      console.log('this.profile', this.profile)
+      if (this.profile === 'administrador') {
+        responseUrl = `api/login/administrador?usuario=${this.email}&resgate=${this.password}`;
+      } else  {
+        responseUrl = `api/login/vendedor?login=${this.email}&resgate=${this.password}`;
+      }
+      const response = await fetch(`${responseUrl}`);
+      const data = await response.json()
+      console.log('data', data.entry)
 
       this.loading = false
-
       setTimeout(() => (this.loading = false), 2000)
     },
     required (v) {

@@ -19,8 +19,17 @@ onMounted(setEntries)
 <template>
   <v-card>
     <v-card-text>
-      <h2 class="mb-4 mt-4">Pedidos</h2>
-      <h4 class="mb-4">Acompanhe os pedidos realizados no sistema.</h4>
+      <v-row no-gutters>
+        <v-col>
+          <h2 class="mb-4 mt-4">Pedidos</h2>
+          <h4 class="mb-4">Acompanhe os pedidos realizados no sistema.</h4>
+        </v-col>
+        <v-col cols="1">
+          <v-sheet class="pa-0 mt-6">
+            <v-btn elevation="0" color="primary" size="large" :to="`/novo-pedido`">Novo</v-btn>
+          </v-sheet>
+        </v-col>
+      </v-row>
       <v-table fixed-header height="72vh">
         <thead>
         <tr>

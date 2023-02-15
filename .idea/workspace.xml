@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apis/agnus-api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/axios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/shared/ImagePlaceholder.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/axios.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/admin/edit.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/middleware/cors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layoutComponents/sidebar/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/layoutComponents/sidebar/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/shared/CurrencyInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/shared/CurrencyInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/novo_pedido/index.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/shared_utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/shared_utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/jars/Projects/agnus/pages/administradores",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/login",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,11 +50,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/api/login" />
+      <recent name="$PROJECT_DIR$/server/api" />
       <recent name="$PROJECT_DIR$/pages/administradores" />
       <recent name="$PROJECT_DIR$/server/api/admin" />
       <recent name="$PROJECT_DIR$/server/api/products" />
-      <recent name="$PROJECT_DIR$/pages/pedidos" />
-      <recent name="$PROJECT_DIR$/server/api/invoices" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/novo_pedido" />
@@ -113,7 +94,8 @@
       <workItem from="1671150261494" duration="39000" />
       <workItem from="1672878672320" duration="8139000" />
       <workItem from="1673312529638" duration="5899000" />
-      <workItem from="1676337491032" duration="7874000" />
+      <workItem from="1676337491032" duration="8239000" />
+      <workItem from="1676419651290" duration="9876000" />
     </task>
     <servers />
   </component>
