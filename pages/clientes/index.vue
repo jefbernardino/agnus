@@ -48,7 +48,7 @@ onMounted(setEntries)
           <th class="text-left" width="20%">Email</th>
           <th class="text-left" width="22%">Vendedor</th>
           <th class="text-center">Ativo</th>
-          <th class="text-left">Ações</th>
+          <th class="text-center">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -57,12 +57,10 @@ onMounted(setEntries)
           <td>{{ item.email }}</td>
           <td>{{ item.vendedor }}</td>
           <td class="text-center">{{ isActive(item.ativo) }}</td>
-          <td>
-            <div class="d-flex flex-wrap gap-2">
-              <v-btn elevation="0" color="primary" size="small" :to="`/clientes/view/${item.id}`">Visualizar</v-btn>
-              <v-btn elevation="0" color="warning" size="small" :to="`/clientes/edit/${item.id}`">Editar</v-btn>
-              <v-btn elevation="0" color="error" size="small" @click="deleteItem(item.id)">Excluir</v-btn>
-            </div>
+          <td class="text-center">
+            <v-btn elevation="0" color="primary" size="small" :to="`/clientes/view/${item.id}`">Visualizar</v-btn>
+            <v-btn elevation="0" color="warning" size="small" :to="`/clientes/edit/${item.id}`" class="mx-2">Editar</v-btn>
+            <v-btn elevation="0" color="error" size="small" @click="deleteItem(item.id)">Excluir</v-btn>
           </td>
         </tr>
         </tbody>

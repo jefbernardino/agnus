@@ -66,7 +66,7 @@ export default {
 </script>
 
 <template>
-  <v-card v-model="item.item">
+  <v-card v-model="item">
     <v-card-text>
       <h2 class="mb-12 mt-4">Editar administrador: {{ item.nome }}</h2>
       <v-form

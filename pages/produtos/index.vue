@@ -14,14 +14,34 @@ const setEntries = async () => {
   }
 }
 
+const deleteItem = async (id) => {
+  console.log('id', id)
+  await useFetch(`/api/products/destroy?id=${id}`)
+    .then(res => {
+      console.log('res', res)
+    }).catch((error) => {
+      console.log('error', error)
+    });
+  await setEntries()
+}
+
 onMounted(setEntries)
 </script>
 
 <template>
   <v-card>
     <v-card-text>
-      <h2 class="mb-4 mt-4">Produtos</h2>
-      <h4 class="mb-4">Gerencie os produtos vendidos no sistema.</h4>
+      <v-row>
+        <v-col cols="10">
+          <h2 class="mb-4 mt-4">Produtos</h2>
+          <h4 class="mb-4">Gerencie os produtos vendidos no sistema.</h4>
+        </v-col>
+        <v-col align-self="center" class="text-right">
+          <v-btn elevation="0" color="success" to="/produtos/add">
+            Adicionar
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-table fixed-header height="72vh">
         <thead>
         <tr>
@@ -30,7 +50,7 @@ onMounted(setEntries)
           <th class="text-left">Tipo</th>
           <th class="text-right">Preço</th>
           <th class="text-center">Ativo</th>
-          <th class="text-left">Ações</th>
+          <th class="text-center">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -42,12 +62,10 @@ onMounted(setEntries)
           <td>{{ item.tipo }}</td>
           <td class="text-right">{{ formatCurrency(item.preco) }}</td>
           <td class="text-center">{{ isActive(item.ativo) }}</td>
-          <td>
-            <div class="d-flex flex-wrap gap-2">
-              <v-btn elevation="0" color="primary" size="small" :to="`/produtos/view/${item.id}`">Visualizar</v-btn>
-              <v-btn elevation="0" color="warning" size="small">Editar</v-btn>
-              <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
-            </div>
+          <td class="text-center">
+            <v-btn elevation="0" color="primary" size="small" :to="`/produtos/view/${item.id}`">Visualizar</v-btn>
+            <v-btn elevation="0" color="warning" size="small" :to="`/produtos/edit/${item.id}`" class="mx-2">Editar</v-btn>
+            <v-btn elevation="0" color="error" size="small" @click="deleteItem(item.id)">Excluir</v-btn>
           </td>
         </tr>
         </tbody>
