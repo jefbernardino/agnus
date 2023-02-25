@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/administradores/add/_old.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/administradores/edit/_old.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/clientes/add/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/clientes/edit/[id].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/clients/add.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/clients/destroy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/clients/edit.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/edit/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/admin/edit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/edit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/clients/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/jars/Projects/agnus/pages/administradores/add",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/clients",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,11 +60,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/api/clients" />
+      <recent name="$PROJECT_DIR$/pages/clientes" />
       <recent name="$PROJECT_DIR$/pages/administradores/add" />
       <recent name="$PROJECT_DIR$/pages/administradores/edit" />
       <recent name="$PROJECT_DIR$/server/api/login" />
-      <recent name="$PROJECT_DIR$/server/api" />
-      <recent name="$PROJECT_DIR$/pages/administradores" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/novo_pedido" />
@@ -123,7 +126,7 @@
       <workItem from="1677028432576" duration="1031000" />
       <workItem from="1677198016613" duration="6287000" />
       <workItem from="1677205983790" duration="3187000" />
-      <workItem from="1677334443652" duration="6135000" />
+      <workItem from="1677334443652" duration="9367000" />
     </task>
     <servers />
   </component>
@@ -140,21 +143,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
-          <line>7</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -13,14 +13,34 @@ const setEntries = async () => {
   }
 }
 
+const deleteItem = async (id) => {
+  console.log('id', id)
+  await useFetch(`/api/clients/destroy?id=${id}`)
+      .then(res => {
+        console.log('res', res)
+      }).catch((error) => {
+        console.log('error', error)
+      });
+  await setEntries()
+}
+
 onMounted(setEntries)
 </script>
 
 <template>
   <v-card>
     <v-card-text>
-      <h2 class="mb-4 mt-4">Clientes</h2>
-      <h4 class="mb-4">Gerencie os clientes cadastrados no sistema.</h4>
+      <v-row>
+        <v-col cols="10">
+          <h2 class="mb-4 mt-4">Clientes</h2>
+          <h4 class="mb-4">Gerencie os clientes cadastrados no sistema.</h4>
+        </v-col>
+        <v-col align-self="center" class="text-right">
+          <v-btn elevation="0" color="success" to="/clientes/add">
+            Adicionar
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-table fixed-header height="72vh">
         <thead>
         <tr>
@@ -40,8 +60,8 @@ onMounted(setEntries)
           <td>
             <div class="d-flex flex-wrap gap-2">
               <v-btn elevation="0" color="primary" size="small" :to="`/clientes/view/${item.id}`">Visualizar</v-btn>
-              <v-btn elevation="0" color="warning" size="small">Editar</v-btn>
-              <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
+              <v-btn elevation="0" color="warning" size="small" :to="`/clientes/edit/${item.id}`">Editar</v-btn>
+              <v-btn elevation="0" color="error" size="small" @click="deleteItem(item.id)">Excluir</v-btn>
             </div>
           </td>
         </tr>
