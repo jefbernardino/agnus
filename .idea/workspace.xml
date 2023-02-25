@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/administradores/add/_old.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/administradores/edit/_old.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/edit/[id].vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/api/admin/edit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/edit.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/admin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/admin/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/show.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/clients/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/show.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/invoices/new.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/new.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/invoices/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/show.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/login/administrador.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/login/administrador.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/login/vendedor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/login/vendedor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/products/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/products/show.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/sellers/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/sellers/show.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/login",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/pages/administradores/add",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,11 +57,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pages/administradores/add" />
+      <recent name="$PROJECT_DIR$/pages/administradores/edit" />
       <recent name="$PROJECT_DIR$/server/api/login" />
       <recent name="$PROJECT_DIR$/server/api" />
       <recent name="$PROJECT_DIR$/pages/administradores" />
-      <recent name="$PROJECT_DIR$/server/api/admin" />
-      <recent name="$PROJECT_DIR$/server/api/products" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pages/novo_pedido" />
@@ -134,6 +123,7 @@
       <workItem from="1677028432576" duration="1031000" />
       <workItem from="1677198016613" duration="6287000" />
       <workItem from="1677205983790" duration="3187000" />
+      <workItem from="1677334443652" duration="6135000" />
     </task>
     <servers />
   </component>
@@ -157,13 +147,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
           <line>6</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
           <line>7</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
