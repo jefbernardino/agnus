@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "http";
-import { fromNodeMiddleware, useQuery } from "h3";
+import { fromNodeMiddleware, getQuery } from "h3";
 
 export default async (req: IncomingMessage, res: ServerResponse) => {
     // @ts-ignore

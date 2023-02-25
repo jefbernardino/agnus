@@ -7,11 +7,23 @@ const entries = ref([]);
 
 const setEntries = async () => {
   const response = await fetch("api/admin");
+  console.log(response)
   const data = await response.json()
 
   if('entries' in data) {
     entries.value = data.entries
   }
+}
+
+const deleteItem = async (id) => {
+  console.log('id', id)
+  await useFetch(`/api/admin/destroy?id=${id}`)
+    .then(res => {
+      console.log('res', res)
+    }).catch((error) => {
+      console.log('error', error)
+    });
+  await setEntries()
 }
 
 onMounted(setEntries)
@@ -20,8 +32,17 @@ onMounted(setEntries)
 <template>
   <v-card>
     <v-card-text>
-      <h2 class="mb-4 mt-4">Administradores</h2>
-      <h4 class="mb-4">Gerencie os administradores do sistema.</h4>
+      <v-row>
+        <v-col cols="10">
+          <h2 class="mb-4 mt-4">Administradores</h2>
+          <h4 class="mb-4">Gerencie os administradores do sistema.</h4>
+        </v-col>
+        <v-col align-self="center" class="text-right">
+          <v-btn elevation="0" color="success" to="/administradores/add">
+            Adicionar
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-table fixed-header height="70vh">
         <thead>
           <tr>
@@ -29,7 +50,7 @@ onMounted(setEntries)
             <th class="text-left">Nome</th>
             <th class="text-left">Email</th>
             <th class="text-center">Ativo</th>
-            <th class="text-left">Ações</th>
+            <th class="text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -40,16 +61,14 @@ onMounted(setEntries)
             <td>{{ item.nome }}</td>
             <td>{{ item.email }}</td>
             <td class="text-center">{{ isActive(item.ativo) }}</td>
-            <td>
-              <div class="d-flex flex-wrap gap-2">
-                <v-btn elevation="0" color="primary" size="small" :to="`/administradores/view/${item.id}`">
-                  Visualizar
-                </v-btn>
-                <v-btn elevation="0" color="warning" size="small" :to="`/administradores/edit/${item.id}`">
-                  Editar
-                </v-btn>
-                <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
-              </div>
+            <td class="text-center">
+              <v-btn elevation="0" color="primary" size="small" :to="`/administradores/view/${item.id}`">
+                Visualizar
+              </v-btn>
+              <v-btn elevation="0" color="warning" size="small" :to="`/administradores/edit/${item.id}`" class="mx-2">
+                Editar
+              </v-btn>
+              <v-btn elevation="0" color="error" size="small" @click="deleteItem(item.id)">Excluir</v-btn>
             </td>
           </tr>
         </tbody>

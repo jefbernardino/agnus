@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="" />
+    <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/edit/[...slug].vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/admin/edit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/edit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/admin/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/admin/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/clients/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/new.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/new.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/login/administrador.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/login/administrador.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/login/vendedor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/login/vendedor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/products/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/products/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/sellers/show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/sellers/show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +59,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "",
     "nodejs_package_manager_path": "yarn",
     "settings.editor.selected.configurable": "vcs.Git",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
@@ -63,6 +81,18 @@
       <recent name="$PROJECT_DIR$/pages/login" />
       <recent name="$PROJECT_DIR$/pages/vendedores" />
     </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.DebugJS">
+    <configuration name="Debug" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="DebugJS" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Node.js/Chrome.Debug" />
+      <item itemvalue="JavaScript Debug.DebugJS" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,6 +126,14 @@
       <workItem from="1673312529638" duration="5899000" />
       <workItem from="1676337491032" duration="8239000" />
       <workItem from="1676419651290" duration="9876000" />
+      <workItem from="1676507234265" duration="299000" />
+      <workItem from="1676681939196" duration="3916000" />
+      <workItem from="1676763502758" duration="7000" />
+      <workItem from="1676849792576" duration="4029000" />
+      <workItem from="1677024296817" duration="847000" />
+      <workItem from="1677028432576" duration="1031000" />
+      <workItem from="1677198016613" duration="6287000" />
+      <workItem from="1677205983790" duration="3187000" />
     </task>
     <servers />
   </component>
@@ -112,5 +150,23 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
+          <line>6</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/api/admin/add.ts</url>
+          <line>7</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

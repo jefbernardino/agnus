@@ -1,6 +1,6 @@
 <template>
   <v-container class="primary fullscreen pa-12" fluid>
-    <v-card class="mx-auto px-6 py-8 text-center">
+    <v-card class="mx-auto px-6 pt-4 pb-8 text-center">
       <v-form
           v-model="form"
           @submit.prevent="onSubmit"
@@ -21,6 +21,9 @@
             class="mb-2"
             clearable
             label="Login"
+            variant="outlined"
+            density="default"
+            single-line
         ></v-text-field>
 
         <v-text-field
@@ -28,9 +31,13 @@
             :readonly="loading"
             :rules="[required]"
             type="password"
+            class="mb-2"
             clearable
             label="Senha"
             placeholder="Insira sua senha"
+            variant="outlined"
+            density="default"
+            single-line
         ></v-text-field>
 
         <v-btn

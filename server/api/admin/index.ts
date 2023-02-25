@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "http";
-
 export default async (req: IncomingMessage, res: ServerResponse) => {
+    // @ts-ignore
     const [rows, fields] = await req["db"].execute("SELECT * FROM administradores order by nome");
     return {
         // status: res.statusCode,
