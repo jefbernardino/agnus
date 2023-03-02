@@ -1,17 +1,17 @@
 <script setup>
 const userprofile = ref([
   {
-    title: "My Profile",
-    desc: "Account Settings",
+    title: "Meu perfil",
+    desc: "Detalhes da minha conta",
   },
-  {
-    title: "My Inbox",
-    desc: "Messages & Emails",
-  },
-  {
-    title: "My Tasks",
-    desc: "To-do and Daily Tasks",
-  },
+  // {
+  //   title: "My Inbox",
+  //   desc: "Messages & Emails",
+  // },
+  // {
+  //   title: "My Tasks",
+  //   desc: "To-do and Daily Tasks",
+  // },
 ]);
 </script>
 
@@ -27,7 +27,7 @@ const userprofile = ref([
         :ripple="false"
       >
         <v-avatar size="35">
-          <img src="~assets/images/user-white.svg" width="35" alt="Julia" />
+          <img src="~assets/images/user-white.svg" width="35" alt="Usuário Teste" />
         </v-avatar>
       </v-btn>
     </template>
@@ -43,9 +43,9 @@ const userprofile = ref([
         rounded="lg"
       >
       </v-list-item>
-      <v-btn block color="secondary" variant="tonal" class="mt-4 py-4"
-        >Logout</v-btn
-      >
+      <v-btn block color="secondary" variant="tonal" class="mt-4 py-4">
+        Sair
+      </v-btn>
     </v-list>
   </v-menu>
 </template>

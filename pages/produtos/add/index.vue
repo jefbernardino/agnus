@@ -1,6 +1,9 @@
 <script>
+import CurrencyInput from "~/components/shared/CurrencyInput";
+
 export default {
   name: "productAdd",
+  components: { CurrencyInput },
   data: () => ({
     form: false,
     nome: null,
@@ -20,7 +23,7 @@ export default {
         method: 'POST',
         body: {
           nome: this.nome,
-          preco: this.preco,
+          preco: this.preco || 0,
           // imagem: this.imagem,
           tipo: this.tipo,
           ativo: this.ativo,
@@ -63,15 +66,27 @@ export default {
         </v-row>
         <v-row>
           <v-col cols="12" md="4">
-            <v-text-field
-                v-model="preco"
-                :readonly="loading"
-                :rules="[required]"
-                label="Preço"
-                variant="outlined"
-                density="comfortable"
-                single-line
-            ></v-text-field>
+            <CurrencyInput
+              v-model="preco"
+              :density="`comfortable`"
+              :name="`preco`"
+              :options="{
+                locale: 'pt-BR',
+                currency: 'BRL',
+                currencyDisplay: 'hidden',
+                hideCurrencySymbolOnFocus: true,
+                hideGroupingSeparatorOnFocus: true,
+                hideNegligibleDecimalDigitsOnFocus: false,
+                autoDecimalDigits: true,
+                useGrouping: true,
+                accountingSign: false,
+                valueRange: {
+                  min: 0,
+                },
+              }"
+              label="Preço"
+              variant="outlined"
+            />
           </v-col>
           <v-col cols="12" md="4">
             <v-select

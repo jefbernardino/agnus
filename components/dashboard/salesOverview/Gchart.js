@@ -3,7 +3,7 @@ import { GChart } from "vue-google-charts";
 
 export const type = "ColumnChart";
 export const data = [
-  ["Sales", "Flexy", "MaterialPro"],
+  ["Vendas", "Filme", "Fita"],
   ["2017", 817, 700],
   ["2018", 379, 269],
   ["2019", 269, 189],
@@ -18,7 +18,7 @@ export const options = {
     minValue: 0,
   },
   bar: {
-    groupWidth: 30,
+    groupWidth: 60,
   },
 
   legend: { position: "bottom", maxLines: 5 },

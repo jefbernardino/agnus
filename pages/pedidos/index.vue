@@ -19,15 +19,15 @@ onMounted(setEntries)
 <template>
   <v-card>
     <v-card-text>
-      <v-row no-gutters>
-        <v-col>
+      <v-row>
+        <v-col cols="10">
           <h2 class="mb-4 mt-4">Pedidos</h2>
           <h4 class="mb-4">Acompanhe os pedidos realizados no sistema.</h4>
         </v-col>
-        <v-col cols="1">
-          <v-sheet class="pa-0 mt-6">
-            <v-btn elevation="0" color="primary" size="large" :to="`/novo-pedido`">Novo</v-btn>
-          </v-sheet>
+        <v-col align-self="center" class="text-right">
+          <v-btn elevation="0" color="success" to="/novo-pedido">
+            Novo pedido
+          </v-btn>
         </v-col>
       </v-row>
       <v-table fixed-header height="72vh">
@@ -55,9 +55,12 @@ onMounted(setEntries)
           <td>{{ item.status }}</td>
           <td>
             <div class="d-flex flex-wrap gap-2">
+              <v-tooltip location="top" :text="item.observacao">
+                <template v-slot:activator="{ props }">
+                  <v-btn elevation="0" color="warning" size="small" v-bind="props">Observação</v-btn>
+                </template>
+              </v-tooltip>
               <v-btn elevation="0" color="primary" size="small" :to="`/pedidos/view/${item.id}`">Visualizar</v-btn>
-              <v-btn elevation="0" color="warning" size="small">Editar</v-btn>
-              <v-btn elevation="0" color="error" size="small">Excluir</v-btn>
             </div>
           </td>
         </tr>

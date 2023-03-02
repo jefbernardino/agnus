@@ -1,4 +1,5 @@
 <script setup>
+import moment from "moment";
 import { ref, onMounted } from "vue";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import CurrencyInput from "~/components/shared/CurrencyInput";
@@ -22,19 +23,60 @@ onMounted(setEntries)
 export default {
   data() {
     return {
-      disabledForm: true,
+      form: false,
       formData: {
-        cliente_id: '',
+        empresa_faturar: '',
+        vendedor_id: 2,
+        cliente_id: 15,
+        data: moment(new Date().toJSON()).format('YYYY-MM-DD'),
         prazo_pagamento: '',
-        data: '',
+        data_entrega: moment(new Date().toJSON()).format('DD/MM/YYYY'),
         ipi: '',
-        empresa: '',
+        valor: 0,
         observacao: '',
+        status: 'Aguardando',
+        ativo: '1',
         produtos: [],
       }
     }
   },
   methods: {
+    async onSubmit () {
+      this.loading = true
+
+      // console.log(
+      //   this.formData.produtos.filter(function(el){
+      //     return el['valor'] !== "";
+      //   })
+      // )
+      // return false
+
+      await useFetch(`/api/invoices/add`, {
+        method: 'POST',
+        body: {
+          empresa_faturar: this.formData.empresa_faturar,
+          vendedor_id: this.formData.vendedor_id,
+          cliente_id: this.formData.cliente_id,
+          data: this.formData.data,
+          prazo_pagamento: this.formData.prazo_pagamento,
+          data_entrega: moment(this.formData.data_entrega).format('YYYY-MM-DD'),
+          ipi: this.formData.ipi,
+          valor: this.formData.valor,
+          observacao: this.formData.observacao,
+          status: this.formData.status,
+          ativo: this.formData.ativo,
+          produtos: this.formData.produtos.filter(function(el){
+            return el['valor'] !== "";
+          }),
+        },
+      }).then(res => {
+        console.log('res', res)
+      }).catch((error) => {
+        console.log('error', error)
+      }).finally(() => {
+        this.loading = false
+      });
+    },
     debounce(func, timeout = 500){
       let timer;
       return (...args) => {
@@ -43,18 +85,19 @@ export default {
       };
     },
     async validate() {
-      this.disabledForm =
-        this.formData.prazo_pagamento !== '' &&
-        this.formData.data !== '' &&
-        this.formData.ipi !== '' &&
-        this.formData.empresa !== '' &&
-        this.formData.produtos.length > 0
+      // this.form =
+      //   this.formData.prazo_pagamento !== '' &&
+      //   this.formData.data_entrega !== '' &&
+      //   this.formData.ipi !== '' &&
+      //   this.formData.empresa_faturar !== '' &&
+      //   this.formData.produtos.length > 0
+      this.form = false
     },
     async setTicknessValue(inputValue, indexValue, item) {
       let value = isNaN(inputValue) ? inputValue.target.value : inputValue
       this.formData.produtos[indexValue] = {
         ...this.formData.produtos[indexValue],
-        id: item.id,
+        produto_id: item.id,
         nome: item.nome,
         espessura: value,
       }
@@ -64,7 +107,7 @@ export default {
       let value = isNaN(inputValue) ? inputValue.target.value : inputValue
       this.formData.produtos[indexValue] = {
         ...this.formData.produtos[indexValue],
-        id: item.id,
+        produto_id: item.id,
         nome: item.nome,
         quantidade: value,
       }
@@ -73,9 +116,9 @@ export default {
       let value = isNaN(inputValue) ? inputValue.target.value : inputValue
       this.formData.produtos[indexValue] = {
         ...this.formData.produtos[indexValue],
-        id: item.id,
+        produto_id: item.id,
         nome: item.nome,
-        preco: value,
+        valor: value,
       }
     },
   },
@@ -83,93 +126,84 @@ export default {
 </script>
 
 <template>
-  <v-form v-model="disabledForm">
+  <v-form v-model="form" @submit.prevent="onSubmit">
     <v-card>
       <v-card-text>
         <h2 class="mb-4 mt-4">Faça seu pedido</h2>
         <h4 class="mb-4">Preencha os campos abaixo corretamente:</h4>
-
-        <v-row>
-          <v-col>
-            <pre>{{ disabledForm }}</pre>
-            <pre>{{ formData }}</pre>
-          </v-col>
-        </v-row>
         <v-row>
           <v-col cols="12" md="3">
             <v-select
-                v-model="formData.cliente_id"
-                :items="[
-                  { value: '', title: 'Selecione o ciente' },
-                  { value: 'Agnusplast', title: 'Agnusplast Indústria e Comércio' },
-                  { value: 'JColombo', title: 'J Colombo Comércio e Embalagens' },
-                ]"
-                item-title="title"
-                item-value="value"
-                label="Cliente"
-                variant="outlined"
-                density="comfortable"
-                single-line
-                @update:modelValue="validate()"
+              v-model="formData.cliente_id"
+              :items="[
+                { value: '', title: 'Selecione o ciente' },
+                { value: '15', title: 'Agnusplast Indústria e Comércio' },
+                { value: '15', title: 'J Colombo Comércio e Embalagens' },
+              ]"
+              item-title="title"
+              item-value="value"
+              label="Cliente"
+              variant="outlined"
+              density="comfortable"
+              single-line
+              @update:modelValue="validate()"
             ></v-select>
           </v-col>
 
           <v-col cols="12" md="3">
             <v-select
-                v-model="formData.empresa"
-                :items="[
-                  { value: '', title: 'Selecione a empresa' },
-                  { value: 'Agnusplast', title: 'Agnusplast Indústria e Comércio' },
-                  { value: 'JColombo', title: 'J Colombo Comércio e Embalagens' },
-                ]"
-                item-title="title"
-                item-value="value"
-                label="Empresa a faturar"
-                variant="outlined"
-                density="comfortable"
-                single-line
-                @update:modelValue="validate()"
+              v-model="formData.empresa_faturar"
+              :items="[
+                { value: '', title: 'Selecione a empresa' },
+                { value: 'Agnusplast', title: 'Agnusplast Indústria e Comércio' },
+                { value: 'JColombo', title: 'J Colombo Comércio e Embalagens' },
+              ]"
+              item-title="title"
+              item-value="value"
+              label="Empresa a faturar"
+              variant="outlined"
+              density="comfortable"
+              single-line
+              @update:modelValue="validate()"
             ></v-select>
           </v-col>
 
           <v-col cols="12" md="2">
             <v-text-field
-                v-model="formData.prazo_pagamento"
-                label="Prazo de pgto"
-                variant="outlined"
-                density="comfortable"
-                required
-                @change="validate()"
+              v-model="formData.prazo_pagamento"
+              label="Prazo de pgto"
+              variant="outlined"
+              density="comfortable"
+              @change="validate()"
             ></v-text-field>
           </v-col>
 
           <v-col cols="12" md="2">
             <!-- <Datepicker /> -->
             <v-text-field
-                v-model="formData.data"
-                label="Data da entrega"
-                variant="outlined"
-                density="comfortable"
-                required
-                @change="validate()"
+              v-model="formData.data_entrega"
+              label="Data da entrega"
+              variant="outlined"
+              density="comfortable"
+              @change="validate()"
             ></v-text-field>
           </v-col>
 
           <v-col cols="12" md="2">
             <v-select
-                v-model="formData.ipi"
-                :items="[
-                  { value: '', title: 'Selecione o IPI' },
-                  { value: 'ISENTO', title: 'Isento' },
-                  { value: '15%', title: 'IPI 15%' },
-                ]"
-                item-title="title"
-                item-value="value"
-                label="IPI"
-                variant="outlined"
-                density="comfortable"
-                single-line
-                @update:modelValue="validate()"
+              v-model="formData.ipi"
+              :items="[
+                { value: '', title: 'Selecione o IPI' },
+                { value: 'ISENTO', title: 'Isento' },
+                { value: '15%', title: 'IPI 15%' },
+              ]"
+              item-title="title"
+              item-value="value"
+              label="IPI"
+              variant="outlined"
+              density="comfortable"
+              single-line
+              @update:modelValue="validate()"
             ></v-select>
           </v-col>
         </v-row>
@@ -191,9 +225,14 @@ export default {
                   <ImagePlaceholder folder="produtos/imagem" :name="item.nome" :filename="item.imagem" />
                 </v-avatar>
               </td>
-              <td>{{ item.nome }}</td>
+              <td>
+                <p>{{ item.nome }}</p>
+                <small>{{ item.tipo }}</small>
+              </td>
               <td>
                 <CurrencyInput
+                  :class="`mt-5`"
+                  :density="`compact`"
                   :name="`formData.produtos[${index}]['espessura']`"
                   :options="{
                     locale: 'pt-BR',
@@ -215,6 +254,8 @@ export default {
               </td>
               <td>
                 <CurrencyInput
+                  :class="`mt-5`"
+                  :density="`compact`"
                   :name="`formData.produtos[${index}]['quantidade']`"
                   :options="{
                     locale: 'pt-BR',
@@ -232,7 +273,9 @@ export default {
               </td>
               <td>
                 <CurrencyInput
-                  :name="`formData.produtos[${index}]['preco']`"
+                  :class="`mt-5`"
+                  :density="`compact`"
+                  :name="`formData.produtos[${index}]['valor']`"
                   :options="{
                     locale: 'pt-BR',
                     currency: 'BRL',
@@ -256,12 +299,13 @@ export default {
                   variant="outlined"
                   density="compact"
                   class="mt-5"
+                  rows="4"
                 ></v-textarea>
               </td>
             </tr>
             <tr>
               <td colspan="5" class="text-right">
-                <v-btn class="mt-5" color="green" prepend-icon="mdi-check" :disabled="disabledForm">
+                <v-btn type="submit" class="mt-5" color="green" prepend-icon="mdi-check">
                   Salvar pedido
                 </v-btn>
               </td>

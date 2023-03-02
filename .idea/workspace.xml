@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/clientes/add/index.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/clientes/edit/[id].vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/clients/add.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/clients/destroy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/api/clients/edit.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/clients/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/profile/ProfileCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/profile/ProfileCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/salesOverview/Gchart.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/salesOverview/Gchart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/dashboard/salesOverview/SalesOverview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/dashboard/salesOverview/SalesOverview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/layoutComponents/header/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/layoutComponents/header/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/novo-pedido/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/novo-pedido/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/invoice_items.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/invoices/new.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/new.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,24 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/clients",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jars/Projects/agnus/server/api/clients&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/api/clients" />
@@ -127,6 +128,8 @@
       <workItem from="1677198016613" duration="6287000" />
       <workItem from="1677205983790" duration="3187000" />
       <workItem from="1677334443652" duration="9367000" />
+      <workItem from="1677646372601" duration="2366000" />
+      <workItem from="1677709713123" duration="165000" />
     </task>
     <servers />
   </component>
@@ -143,5 +146,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/api/invoices/add.ts</url>
+          <line>6</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
