@@ -1,4 +1,6 @@
 <script>
+import {createToast} from "mosha-vue-toastify";
+
 export default {
   name: "adminAdd",
   data: () => ({
@@ -29,10 +31,17 @@ export default {
           role: this.role,
           ativo: this.ativo,
         },
-      }).then(res => {
-        console.log('res', res)
-      }).catch((error) => {
-        console.log('error', error)
+      }).then(() => {
+        createToast('Administrador adicionado com sucesso.', {
+          type: 'success'
+        });
+        setTimeout(() => (
+          location.assign('/administradores')
+        ), 1200);
+      }).catch(() => {
+        createToast('Erro ao adicionar administrador.', {
+          type: 'error'
+        });
       }).finally(() => {
         this.loading = false
       });

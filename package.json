@@ -13,6 +13,8 @@
     "@vuepic/vue-datepicker": "^3.5.3",
     "axios": "^1.2.2",
     "moment": "^2.29.4",
+    "mosha-vue-toastify": "^1.0.23",
+    "pinia": "^2.0.32",
     "sass": "^1.53.0",
     "vue": "^3.2.34",
     "vue-currency-input": "^3.0.2",

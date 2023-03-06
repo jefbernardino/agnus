@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import 'mosha-vue-toastify/dist/style.css';
 import { ref, onMounted } from "vue";
 import { useDisplay } from "vuetify";
 import Sidebar from "~~/components/layoutComponents/sidebar/Sidebar.vue";

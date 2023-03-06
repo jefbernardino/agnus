@@ -11,8 +11,5 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
     // @ts-ignore
     const [rows, fields] = await req["db"].execute("DELETE FROM clientes WHERE id = ?", values);
 
-    return {
-        // status: res.statusCode,
-        message: res.statusMessage,
-    };
+    return { entry: values };
 };

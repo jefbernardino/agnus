@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, reactive } from "vue";
+import {createToast} from "mosha-vue-toastify";
 
 const route = useRoute()
 
@@ -35,8 +36,20 @@ const updateItem = async () => {
   await useFetch(`/api/sellers/edit?id=${route.params.id}`, {
     method: 'POST',
     body: item
-  })
-  location.assign('/vendedores')
+  }).then(() => {
+    createToast('Vendedor editado com sucesso.', {
+      type: 'success'
+    });
+    setTimeout(() => (
+        location.assign('/vendedores')
+    ), 1200);
+  }).catch(() => {
+    createToast('Erro ao editar vendedor.', {
+      type: 'error'
+    });
+  }).finally(() => {
+    this.loading = false
+  });
 }
 
 </script>

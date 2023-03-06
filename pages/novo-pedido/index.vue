@@ -20,6 +20,8 @@ onMounted(setEntries)
 </script>
 
 <script>
+import {createToast} from "mosha-vue-toastify";
+
 export default {
   data() {
     return {
@@ -69,10 +71,17 @@ export default {
             return el['valor'] !== "";
           }),
         },
-      }).then(res => {
-        console.log('res', res)
-      }).catch((error) => {
-        console.log('error', error)
+      }).then(() => {
+        createToast('Pedido adicionado com sucesso.', {
+          type: 'success'
+        });
+        setTimeout(() => (
+            location.assign('/novo-pedido')
+        ), 1200);
+      }).catch(() => {
+        createToast('Erro ao adicionar pedido.', {
+          type: 'error'
+        });
       }).finally(() => {
         this.loading = false
       });

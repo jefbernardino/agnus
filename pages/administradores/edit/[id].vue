@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, reactive } from "vue";
+import {createToast} from "mosha-vue-toastify";
 
 const route = useRoute()
 
@@ -32,8 +33,20 @@ const updateItem = async () => {
   await useFetch(`/api/admin/edit?id=${route.params.id}`, {
     method: 'POST',
     body: item
-  })
-  location.assign('/administradores')
+  }).then(() => {
+    createToast('Administrador editado com sucesso.', {
+      type: 'success'
+    });
+    setTimeout(() => (
+        location.assign('/administradores')
+    ), 1200);
+  }).catch(() => {
+    createToast('Erro ao editar administrador.', {
+      type: 'error'
+    });
+  }).finally(() => {
+    this.loading = false
+  });
 }
 
 </script>

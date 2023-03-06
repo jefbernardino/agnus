@@ -1,4 +1,6 @@
 <script>
+import {createToast} from "mosha-vue-toastify";
+
 export default {
   name: "productAdd",
   data: () => ({
@@ -30,10 +32,17 @@ export default {
           // imagem: this.imagem,
           ativo: this.ativo,
         },
-      }).then(res => {
-        console.log('res', res)
-      }).catch((error) => {
-        console.log('error', error)
+      }).then(() => {
+        createToast('Vendedor adicionado com sucesso.', {
+          type: 'success'
+        });
+        setTimeout(() => (
+            location.assign('/vendedores')
+        ), 1200);
+      }).catch(() => {
+        createToast('Erro ao adicionar vendedor.', {
+          type: 'error'
+        });
       }).finally(() => {
         this.loading = false
       });

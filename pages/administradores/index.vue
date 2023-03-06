@@ -2,12 +2,12 @@
 import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
+import {createToast} from "mosha-vue-toastify";
 
 const entries = ref([]);
 
 const setEntries = async () => {
   const response = await fetch("api/admin");
-  console.log(response)
   const data = await response.json()
 
   if('entries' in data) {
@@ -16,12 +16,15 @@ const setEntries = async () => {
 }
 
 const deleteItem = async (id) => {
-  console.log('id', id)
   await useFetch(`/api/admin/destroy?id=${id}`)
     .then(res => {
-      console.log('res', res)
+      createToast('Administrador excluído com sucesso.', {
+        type: 'success'
+      });
     }).catch((error) => {
-      console.log('error', error)
+        createToast('Erro ao excluir administrador.', {
+          type: 'error'
+        });
     });
   await setEntries()
 }

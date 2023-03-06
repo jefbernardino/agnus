@@ -1,4 +1,6 @@
 <script>
+import {createToast} from "mosha-vue-toastify";
+
 export default {
   name: "clientAdd",
   data: () => ({
@@ -39,10 +41,17 @@ export default {
           contato: this.contato,
           ativo: this.ativo,
         },
-      }).then(res => {
-        console.log('res', res)
-      }).catch((error) => {
-        console.log('error', error)
+      }).then(() => {
+        createToast('Cliente adicionado com sucesso.', {
+          type: 'success'
+        });
+        setTimeout(() => (
+            location.assign('/clientes')
+        ), 1200);
+      }).catch(() => {
+        createToast('Erro ao adicionar cliente.', {
+          type: 'error'
+        });
       }).finally(() => {
         this.loading = false
       });

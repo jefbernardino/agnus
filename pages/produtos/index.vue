@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { formatCurrency, isActive } from "~/utils/shared_utils";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
+import {createToast} from "mosha-vue-toastify";
 
 const entries = ref([]);
 
@@ -15,13 +16,16 @@ const setEntries = async () => {
 }
 
 const deleteItem = async (id) => {
-  console.log('id', id)
   await useFetch(`/api/products/destroy?id=${id}`)
-    .then(res => {
-      console.log('res', res)
-    }).catch((error) => {
-      console.log('error', error)
-    });
+      .then(res => {
+        createToast('Produto excluído com sucesso.', {
+          type: 'success'
+        });
+      }).catch((error) => {
+        createToast('Erro ao excluir produto.', {
+          type: 'error'
+        });
+      });
   await setEntries()
 }
 

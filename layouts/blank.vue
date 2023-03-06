@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import 'mosha-vue-toastify/dist/style.css';
 import { useHead } from "#head";
 
 useHead({

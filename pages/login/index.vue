@@ -58,9 +58,7 @@
 </template>
 
 <script>
-// import * as AgnusApi from '@/apis/agnus-api'
-import { MD5 } from "md5-js-tools";
-import { dataToURLSearchParams } from "~/utils/shared_utils";
+import { createToast } from 'mosha-vue-toastify';
 
 definePageMeta({
   layout: "blank",
@@ -76,27 +74,15 @@ export default {
     loading: false,
   }),
   methods: {
-    async asyncData() {
-      const ip = await this.$api.get('http://icanhazip.com')
-      console.log('IP >>> ', ip)
-    },
     async onSubmit () {
       if (!this.form) return
 
       this.loading = true
 
-      // admin
-      // megalu
-
-      // jeferson
-      // 96254600
-      console.log('this.form', this.form)
-      console.log('this.email', this.email)
-      console.log('this.password', this.password)
-      console.log('this.password', MD5.generate(this.password))
+      // admin, megalu
+      // jeferson, 96254600
 
       let responseUrl;
-      console.log('this.profile', this.profile)
       if (this.profile === 'administrador') {
         responseUrl = `api/login/administrador?usuario=${this.email}&resgate=${this.password}`;
       } else  {
@@ -104,10 +90,17 @@ export default {
       }
       const response = await fetch(`${responseUrl}`);
       const data = await response.json()
-      console.log('data', data.entry)
 
-      this.loading = false
-      setTimeout(() => (this.loading = false), 2000)
+      if(data.entry.id) {
+        createToast('Realizando login, aguarde...', {
+          type: 'success'
+        });
+      } else {
+        createToast('Falha ao logar, verifique os dados inseridos.', {
+          type: 'danger'
+        });
+      }
+      setTimeout(() => (this.loading = false), 1200)
     },
     required (v) {
       return !!v || 'Campo obrigatório'

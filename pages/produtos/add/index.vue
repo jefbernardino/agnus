@@ -1,5 +1,6 @@
 <script>
 import CurrencyInput from "~/components/shared/CurrencyInput";
+import {createToast} from "mosha-vue-toastify";
 
 export default {
   name: "productAdd",
@@ -28,10 +29,17 @@ export default {
           tipo: this.tipo,
           ativo: this.ativo,
         },
-      }).then(res => {
-        console.log('res', res)
-      }).catch((error) => {
-        console.log('error', error)
+      }).then(() => {
+        createToast('Produto adicionado com sucesso.', {
+          type: 'success'
+        });
+        setTimeout(() => (
+            location.assign('/produtos')
+        ), 1200);
+      }).catch(() => {
+        createToast('Erro ao adicionar produto.', {
+          type: 'error'
+        });
       }).finally(() => {
         this.loading = false
       });
