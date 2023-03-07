@@ -17,6 +17,10 @@ export default defineNuxtConfig({
         transpile: ["vuetify"],
     },
     css: ["@/assets/scss/style.scss"],
+    modules: [
+      '@pinia/nuxt',
+      '@pinia-plugin-persistedstate/nuxt',
+    ],
     vite: {
         define: {
             "process.env.DEBUG": false,

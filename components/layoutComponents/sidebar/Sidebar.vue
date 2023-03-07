@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useUserStore } from "@/store/user";
 import sidebarItems from "./sidebarItems";
 
 const sidebarMenu = ref(sidebarItems);
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -19,7 +21,7 @@ const sidebarMenu = ref(sidebarItems);
           </v-avatar>
         </div>
         <div class="profile-name">
-          <h5>Usuário teste</h5>
+          <h5>{{ userStore.user.nome }}</h5>
         </div>
       </div>
       <v-list class="pa-4">

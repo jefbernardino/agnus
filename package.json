@@ -10,11 +10,12 @@
   "dependencies": {
     "@mdi/font": "^6.7.96",
     "@nuxtjs/axios": "^5.13.6",
+    "@pinia/nuxt": "^0.4.7",
     "@vuepic/vue-datepicker": "^3.5.3",
     "axios": "^1.2.2",
     "moment": "^2.29.4",
     "mosha-vue-toastify": "^1.0.23",
-    "pinia": "^2.0.32",
+    "pinia": "^2.0.33",
     "sass": "^1.53.0",
     "vue": "^3.2.34",
     "vue-currency-input": "^3.0.2",
@@ -22,8 +23,9 @@
     "vuetify": "3.0.0"
   },
   "devDependencies": {
+    "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
     "md5-js-tools": "^1.0.2",
     "mysql2": "^2.3.3",
-    "nuxt": "3.0.0-rc.13"
+    "nuxt": "3.0.0"
   }
 }

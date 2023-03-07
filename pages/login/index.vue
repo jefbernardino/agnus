@@ -59,6 +59,7 @@
 
 <script>
 import { createToast } from 'mosha-vue-toastify';
+import { useUserStore } from "@/store/user";
 
 definePageMeta({
   layout: "blank",
@@ -66,6 +67,10 @@ definePageMeta({
 
 export default {
   name: "login",
+  setup() {
+    const userStore = useUserStore();
+    return { userStore };
+  },
   data: () => ({
     form: false,
     profile: 'administrador',
@@ -73,6 +78,11 @@ export default {
     password: null,
     loading: false,
   }),
+  beforeMount() {
+    if(this.userStore.user.id) {
+      this.$router.push('/');
+    }
+  },
   methods: {
     async onSubmit () {
       if (!this.form) return
@@ -92,9 +102,11 @@ export default {
       const data = await response.json()
 
       if(data.entry.id) {
+        await this.userStore.fetchUser(data.entry);
         createToast('Realizando login, aguarde...', {
           type: 'success'
         });
+        this.$router.push('/');
       } else {
         createToast('Falha ao logar, verifique os dados inseridos.', {
           type: 'danger'

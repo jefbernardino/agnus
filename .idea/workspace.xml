@@ -6,29 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/blank.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/blank.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/default.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/add/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/add/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/edit/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/edit/_old.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/add/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/add/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/edit/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/edit/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/novo-pedido/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/novo-pedido/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/add/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/add/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/edit/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/edit/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/vendedores/add/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/add/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/vendedores/edit/[id].vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/edit/[id].vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/vendedores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/admin/destroy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/admin/destroy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/clients/destroy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/clients/destroy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/invoices/new.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/invoices/new.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/products/destroy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/products/destroy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/api/sellers/destroy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/sellers/destroy.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +126,9 @@
       <workItem from="1677334443652" duration="9367000" />
       <workItem from="1677646372601" duration="2366000" />
       <workItem from="1677709713123" duration="165000" />
+      <workItem from="1678148561421" duration="52000" />
+      <workItem from="1678149013629" duration="169000" />
+      <workItem from="1678154387733" duration="3777000" />
     </task>
     <servers />
   </component>
