@@ -2,9 +2,11 @@
 import { ref, watch } from "vue";
 import { useUserStore } from "@/store/user";
 import sidebarItems from "./sidebarItems";
+import sidebarItemsAdmin from "./sidebarItemsAdmin";
 
-const sidebarMenu = ref(sidebarItems);
 const userStore = useUserStore();
+
+const sidebarMenu = ref(userStore.user.role === 'admin' ? sidebarItemsAdmin : sidebarItems);
 </script>
 
 <template>
@@ -16,8 +18,18 @@ const userStore = useUserStore();
       <div class="profile">
         <div class="profile-pic">
           <v-avatar size="46">
-            <!-- <img src="~assets/images/user.svg" width="46" alt="Julia" /> -->
-            <img src="https://agnusplast.com.br/pedidos/theme/admin/img/placeholders/avatars/avatar.jpg" width="46" alt="Usuário teste">
+            <img 
+              v-if="userStore.user.imagem"
+              :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}` || `~assets/images/user-white.svg`" 
+              :alt="`${userStore.user.nome}`"
+              width="46"
+            />
+            <img 
+              v-else
+              src="https://agnusplast.com.br/pedidos/theme/admin/img/placeholders/avatars/avatar.jpg"
+              :alt="`${userStore.user.nome}`"
+              width="46"
+            />
           </v-avatar>
         </div>
         <div class="profile-name">
@@ -32,7 +44,7 @@ const userStore = useUserStore();
           <!-- ---------------------------------------------- -->
           <!---Single Item-->
           <!-- ---------------------------------------------- -->
-          <v-list-item :to="item.to" :prepend-icon="item.icon" :title="item.title" rounded="lg" class="mb-1"></v-list-item>
+          <v-list-item lazy v-if="item.show" :to="item.to" :prepend-icon="item.icon" :title="item.title" rounded="lg" class="mb-1"></v-list-item>
         </template>
       </v-list>
     </div>

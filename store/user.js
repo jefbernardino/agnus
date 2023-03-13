@@ -11,6 +11,13 @@ export const useUserStore = defineStore('userStore', {
     async fetchUser(data) {
       this.user = data;
     },
+    async logout() {
+      // console.log('user logout')
+      // this.$patch({
+      //   user: {},
+      // })
+      this.user = null
+    },
   },
   persist: {
     storage: persistedState.sessionStorage,

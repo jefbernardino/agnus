@@ -1,11 +1,17 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { dateToBr, formatCurrency } from "~/utils/shared_utils";
+import { useUserStore } from "@/store/user";
 
+const userStore = useUserStore();
 const entries = ref([]);
 
 const setEntries = async () => {
-  const response = await fetch("api/invoices");
+  const showURL = userStore.user.role === 'admin' ?
+    `/api/invoices` : 
+    `api/invoices/invoicesByUser?id=${userStore.user.id}`;
+
+  const response = await fetch(showURL);
   const data = await response.json()
 
   if('entries' in data) {
@@ -25,7 +31,7 @@ onMounted(setEntries)
           <h4 class="mb-4">Acompanhe os pedidos realizados no sistema.</h4>
         </v-col>
         <v-col align-self="center" class="text-right">
-          <v-btn elevation="0" color="success" to="/novo-pedido">
+          <v-btn v-show="userStore.user.role !== 'admin'" elevation="0" color="success" to="/novo-pedido">
             Novo pedido
           </v-btn>
         </v-col>

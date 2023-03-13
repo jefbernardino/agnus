@@ -13,8 +13,8 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         "LEFT JOIN pedidos_has_produtos AS php ON pedido.id = php.pedido_id " +
         "LEFT JOIN vendedores vendedor ON pedido.vendedor_id = vendedor.id " +
         "LEFT JOIN clientes cliente on pedido.cliente_id = cliente.id " +
-        "WHERE pedido.id = ? " + 
-        "GROUP BY pedido.id", [query.id]);
+        "WHERE pedido.id = ? AND pedido.vendedor_id = ? " + 
+        "GROUP BY pedido.id", [query.id, query.vendedor_id]);
 
     return {
         // status: res.statusCode,

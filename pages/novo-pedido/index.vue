@@ -4,8 +4,11 @@ import { ref, onMounted } from "vue";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import CurrencyInput from "~/components/shared/CurrencyInput";
 // import Datepicker from "~/components/shared/Datepicker";
+import { useUserStore } from "@/store/user";
 
+const userStore = useUserStore();
 const entries = ref([]);
+const clients = ref([]);
 
 const setEntries = async () => {
   const response = await fetch("api/invoices/new");
@@ -16,7 +19,17 @@ const setEntries = async () => {
   }
 }
 
+const setClients = async () => {
+  const responseClients = await fetch(`api/invoices/clients?id=${userStore.user.id}`);
+  const dataClients = await responseClients.json()
+
+  if('entries' in dataClients) {
+    clients.value = dataClients.entries
+  }
+}
+
 onMounted(setEntries)
+onMounted(setClients)
 </script>
 
 <script>
@@ -27,9 +40,9 @@ export default {
     return {
       form: false,
       formData: {
-        empresa_faturar: '',
+        empresa_faturar: 'Agnusplast',
         vendedor_id: 2,
-        cliente_id: 15,
+        cliente_id: null,
         data: moment(new Date().toJSON()).format('YYYY-MM-DD'),
         prazo_pagamento: '',
         data_entrega: moment(new Date().toJSON()).format('DD/MM/YYYY'),
@@ -45,13 +58,6 @@ export default {
   methods: {
     async onSubmit () {
       this.loading = true
-
-      // console.log(
-      //   this.formData.produtos.filter(function(el){
-      //     return el['valor'] !== "";
-      //   })
-      // )
-      // return false
 
       await useFetch(`/api/invoices/add`, {
         method: 'POST',
@@ -144,13 +150,9 @@ export default {
           <v-col cols="12" md="3">
             <v-select
               v-model="formData.cliente_id"
-              :items="[
-                { value: '', title: 'Selecione o ciente' },
-                { value: '15', title: 'Agnusplast Indústria e Comércio' },
-                { value: '15', title: 'J Colombo Comércio e Embalagens' },
-              ]"
-              item-title="title"
-              item-value="value"
+              :items="clients"
+              item-title="nome"
+              item-value="id"
               label="Cliente"
               variant="outlined"
               density="comfortable"
@@ -163,7 +165,6 @@ export default {
             <v-select
               v-model="formData.empresa_faturar"
               :items="[
-                { value: '', title: 'Selecione a empresa' },
                 { value: 'Agnusplast', title: 'Agnusplast Indústria e Comércio' },
                 { value: 'JColombo', title: 'J Colombo Comércio e Embalagens' },
               ]"

@@ -1,18 +1,35 @@
-<script setup>
-const userprofile = ref([
-  {
-    title: "Meu perfil",
-    desc: "Detalhes da minha conta",
+<script lang="ts">
+import { getActivePinia } from "pinia"
+import { useUserStore } from "@/store/user";
+
+export default defineComponent({
+  setup() {
+    const userStore = useUserStore();
+
+    const userProfile = ref([
+      {
+        title: userStore.user.nome,
+        desc: userStore.user.role === "admin" ? "Administrador" : "Vendedor",
+      },
+      // {
+      //   title: "My Inbox",
+      //   desc: "Messages & Emails",
+      // },
+      // {
+      //   title: "My Tasks",
+      //   desc: "To-do and Daily Tasks",
+      // },
+    ]);
+
+    return { userProfile, userStore }
   },
-  // {
-  //   title: "My Inbox",
-  //   desc: "Messages & Emails",
-  // },
-  // {
-  //   title: "My Tasks",
-  //   desc: "To-do and Daily Tasks",
-  // },
-]);
+  methods: {
+    logout() {
+      getActivePinia()._s.forEach(store => store.$reset());
+      return navigateTo('/login')
+    }
+  }
+});
 </script>
 
 <template>
@@ -26,8 +43,12 @@ const userprofile = ref([
         plain
         :ripple="false"
       >
-        <v-avatar size="35">
-          <img src="~assets/images/user-white.svg" width="35" alt="Usuário Teste" />
+        <v-avatar size="36">
+          <img 
+            :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}` || `~assets/images/user-white.svg`" 
+            width="36" 
+            :alt="`${userStore.user.nome}`" 
+          />
         </v-avatar>
       </v-btn>
     </template>
@@ -35,7 +56,7 @@ const userprofile = ref([
     <v-list class="pa-6" elevation="10" rounded="lg">
       <v-list-item
         class="pa-3 mb-2"
-        v-for="(item, i) in userprofile"
+        v-for="(item, i) in userProfile"
         :key="i"
         :value="item"
         :title="item.title"
@@ -43,7 +64,7 @@ const userprofile = ref([
         rounded="lg"
       >
       </v-list-item>
-      <v-btn block color="secondary" variant="tonal" class="mt-4 py-4">
+      <v-btn block color="error" variant="tonal" class="mt-4 py-4" @click="logout">
         Sair
       </v-btn>
     </v-list>

@@ -62,7 +62,8 @@ import { createToast } from 'mosha-vue-toastify';
 import { useUserStore } from "@/store/user";
 
 definePageMeta({
-  layout: "blank",
+  layout: "auth",
+  // middleware: ["login"],
 });
 
 export default {
@@ -78,11 +79,6 @@ export default {
     password: null,
     loading: false,
   }),
-  beforeMount() {
-    if(this.userStore.user.id) {
-      this.$router.push('/');
-    }
-  },
   methods: {
     async onSubmit () {
       if (!this.form) return
@@ -102,17 +98,21 @@ export default {
       const data = await response.json()
 
       if(data.entry.id) {
+        const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido'
+        
         await this.userStore.fetchUser(data.entry);
-        createToast('Realizando login, aguarde...', {
+        createToast('Seja bem vindo!', {
           type: 'success'
         });
-        this.$router.push('/');
+        setTimeout(() => (
+          this.$router.push(screenToRedirect)
+        ), 1400)
       } else {
         createToast('Falha ao logar, verifique os dados inseridos.', {
           type: 'danger'
         });
       }
-      setTimeout(() => (this.loading = false), 1200)
+      setTimeout(() => (this.loading = false), 1600)
     },
     required (v) {
       return !!v || 'Campo obrigatório'
