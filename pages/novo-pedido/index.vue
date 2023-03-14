@@ -33,7 +33,7 @@ onMounted(setClients)
 </script>
 
 <script>
-import {createToast} from "mosha-vue-toastify";
+import { createToast } from "mosha-vue-toastify";
 
 export default {
   data() {

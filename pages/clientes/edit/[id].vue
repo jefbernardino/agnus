@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, reactive } from "vue";
-import {createToast} from "mosha-vue-toastify";
+import { createToast } from "mosha-vue-toastify";
 
 const route = useRoute()
 

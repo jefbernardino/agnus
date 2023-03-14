@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
-import {createToast} from "mosha-vue-toastify";
+import { createToast } from "mosha-vue-toastify";
 
 const entries = ref([]);
 

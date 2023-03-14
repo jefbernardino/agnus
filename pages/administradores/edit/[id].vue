@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, reactive } from "vue";
-import {createToast} from "mosha-vue-toastify";
+import { createToast } from "mosha-vue-toastify";
 
 const route = useRoute()
 
@@ -11,6 +11,7 @@ const item = reactive({
   resgate: "",
   role: "",
   ativo: "",
+  // imagem: "",
 });
 
 const setEntry = async () => {
@@ -24,12 +25,14 @@ const setEntry = async () => {
     item.resgate = data.entry.resgate
     item.role = data.entry.role
     item.ativo = data.entry.ativo
+    // item.imagem = data.entry.imagem
   }
 }
 
 onMounted(setEntry)
 
 const updateItem = async () => {
+  // console.log("file", this.file)
   await useFetch(`/api/admin/edit?id=${route.params.id}`, {
     method: 'POST',
     body: item
@@ -38,7 +41,7 @@ const updateItem = async () => {
       type: 'success'
     });
     setTimeout(() => (
-        location.assign('/administradores')
+      location.assign('/administradores')
     ), 1200);
   }).catch(() => {
     createToast('Erro ao editar administrador.', {
@@ -57,6 +60,7 @@ export default {
   data: () => ({
     form: false,
     loading: false,
+    file: [],
   }),
   methods: {
     required (v) {
@@ -98,19 +102,6 @@ export default {
                 single-line
             ></v-text-field>
           </v-col>
-          <!-- <v-col cols="12" md="4">
-            <v-file-input
-                v-model="imagem"
-                :readonly="loading"
-                type="imagem"
-                clearable
-                label="Imagem"
-                placeholder="Insira sua imagem"
-                variant="outlined"
-                density="comfortable"
-                single-line
-            ></v-file-input>
-          </v-col> -->
         </v-row>
         <v-row>
           <v-col cols="12" md="4">
@@ -155,6 +146,21 @@ export default {
             ></v-select>
           </v-col>
         </v-row>
+        <!--<v-row>
+          <v-col>
+            <v-file-input
+              v-model="file"
+              accept="image/png, image/jpg, image/jpeg, image/bmp"
+              placeholder="Selecione uma imagem (avatar)"
+              prepend-icon="mdi-image"
+              label="Selecione uma imagem (avatar)"
+              variant="outlined"
+              density="comfortable"
+              single-line
+              :show-size="1000"
+            />
+          </v-col>
+        </v-row>-->
         <v-row>
           <v-col cols="12" md="4">
             <v-btn

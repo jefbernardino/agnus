@@ -1,5 +1,5 @@
 <script>
-import {createToast} from "mosha-vue-toastify";
+import { createToast } from "mosha-vue-toastify";
 
 export default {
   name: "productAdd",
