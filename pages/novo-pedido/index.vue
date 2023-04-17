@@ -11,7 +11,7 @@ const entries = ref([]);
 const clients = ref([]);
 
 const setEntries = async () => {
-  const response = await fetch("api/invoices/new");
+  const response = await fetch("/api/invoices/new");
   const data = await response.json()
 
   if('entries' in data) {
@@ -20,7 +20,7 @@ const setEntries = async () => {
 }
 
 const setClients = async () => {
-  const responseClients = await fetch(`api/invoices/clients?id=${userStore.user.id}`);
+  const responseClients = await fetch(`/api/invoices/clients?id=${userStore.user.id}`);
   const dataClients = await responseClients.json()
 
   if('entries' in dataClients) {

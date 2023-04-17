@@ -8,8 +8,8 @@ const entries = ref([]);
 
 const setEntries = async () => {
   const showURL = userStore.user.role === 'admin' ?
-    `/api/invoices` : 
-    `api/invoices/invoicesByUser?id=${userStore.user.id}`;
+    `/api/invoices` :
+    `/api/invoices/invoicesByUser?id=${userStore.user.id}`;
 
   const response = await fetch(showURL);
   const data = await response.json()

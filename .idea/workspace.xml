@@ -7,9 +7,14 @@
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/novo-pedido/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/novo-pedido/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/pedidos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedidos/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/vendedores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/database.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +134,11 @@
       <workItem from="1678148561421" duration="52000" />
       <workItem from="1678149013629" duration="169000" />
       <workItem from="1678154387733" duration="3777000" />
+      <workItem from="1680575990897" duration="1128000" />
+      <workItem from="1681261881677" duration="13215000" />
+      <workItem from="1681695699716" duration="350000" />
+      <workItem from="1681696060580" duration="12000" />
+      <workItem from="1681696141460" duration="2291000" />
     </task>
     <servers />
   </component>

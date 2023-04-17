@@ -90,16 +90,26 @@ export default {
 
       let responseUrl;
       if (this.profile === 'administrador') {
-        responseUrl = `api/login/administrador?usuario=${this.email}&resgate=${this.password}`;
+        responseUrl = `/api/login/administrador?usuario=${this.email}&resgate=${this.password}`;
       } else  {
-        responseUrl = `api/login/vendedor?login=${this.email}&resgate=${this.password}`;
+        responseUrl = `/api/login/vendedor?login=${this.email}&resgate=${this.password}`;
       }
-      const response = await fetch(`${responseUrl}`);
+
+      // const { data: response } = await useFetch(`${responseUrl}`);
+      // const data = response._rawValue
+      // const response = await fetch(`${responseUrl}`);
+      const response = await fetch(
+          `${responseUrl}`,
+          new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          }),
+      );
       const data = await response.json()
 
       if(data.entry.id) {
         const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido'
-        
+
         await this.userStore.fetchUser(data.entry);
         createToast('Seja bem vindo!', {
           type: 'success'
@@ -108,6 +118,7 @@ export default {
           this.$router.push(screenToRedirect)
         ), 1400)
       } else {
+        this.loading = false
         createToast('Falha ao logar, verifique os dados inseridos.', {
           type: 'danger'
         });

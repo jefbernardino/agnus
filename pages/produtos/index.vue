@@ -7,7 +7,7 @@ import { createToast } from "mosha-vue-toastify";
 const entries = ref([]);
 
 const setEntries = async () => {
-  const response = await fetch("api/products");
+  const response = await fetch("/api/products");
   const data = await response.json()
 
   if('entries' in data) {
