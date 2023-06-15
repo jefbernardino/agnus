@@ -17,8 +17,19 @@ export default defineNuxtConfig({
       "@pinia-plugin-persistedstate/nuxt",
     ],
     vite: {
+        resolve: {
+            dedupe: [
+                'vue'
+            ]
+        },
         define: {
             "process.env.DEBUG": false,
+        },
+    },
+    router: {
+        base: '/',
+        options: {
+            strict: true,
         },
     },
 });

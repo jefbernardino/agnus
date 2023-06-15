@@ -95,17 +95,15 @@ export default {
         responseUrl = `/api/login/vendedor?login=${this.email}&resgate=${this.password}`;
       }
 
-      // const { data: response } = await useFetch(`${responseUrl}`);
-      // const data = response._rawValue
-      // const response = await fetch(`${responseUrl}`);
-      const response = await fetch(
-          `${responseUrl}`,
-          new Headers({
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          }),
-      );
-      const data = await response.json()
+      let { data } = await useFetch(`${responseUrl}`)
+      data = data._value
+
+      if(!data) {
+        createToast('Falha ao logar! Verifique os dados e tente novamente', {
+            type: 'danger'
+        });
+        this.loading = false
+      }
 
       if(data.entry.id) {
         const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido'
