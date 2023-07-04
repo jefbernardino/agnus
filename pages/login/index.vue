@@ -60,6 +60,7 @@
 <script>
 import { createToast } from 'mosha-vue-toastify';
 import { useUserStore } from "@/store/user";
+import {axiosPublic} from "~/apis/axios";
 
 definePageMeta({
   layout: "auth",
@@ -98,14 +99,17 @@ export default {
       // const { data: response } = await useFetch(`${responseUrl}`);
       // const data = response._rawValue
       // const response = await fetch(`${responseUrl}`);
-      const response = await fetch(
-          `${responseUrl}`,
-          new Headers({
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          }),
-      );
-      const data = await response.json()
+
+      // const response = await fetch(
+      //     `${responseUrl}`,
+      //     new Headers({
+      //       'Content-Type': 'application/json',
+      //       'Accept': 'application/json',
+      //     }),
+      // );
+      // const { data: response } = await axiosPublic.get(responseUrl);
+
+      const { data } = await axiosPublic.get(responseUrl);
 
       if(data.entry.id) {
         const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido'

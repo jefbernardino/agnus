@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29a8b7e3-1e9f-4e5f-bcb3-b5b8457da394" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/helpers/dynamicRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/administradores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/administradores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/clientes/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/clientes/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/apis/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/novo-pedido/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/novo-pedido/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/pedidos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/pedidos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/produtos/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/produtos/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/vendedores/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/vendedores/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/middleware/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/database.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,24 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jars/Projects/agnus/server/api/clients&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jars/Projects/agnus/server/api/clients",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/api/clients" />
