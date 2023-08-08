@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": "https://pedidos.grupoagnus.ind.br",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
