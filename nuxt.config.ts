@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     // app: {
     //     cdnURL: "https://pedidos.grupoagnus.ind.br/",
     // },
+    publicPath: '/',
+    outputDir: 'public/',
     target: "static",
     ssr: false,
     build: {

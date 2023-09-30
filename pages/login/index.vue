@@ -97,14 +97,15 @@ export default {
       const response = await fetch(
           `${responseUrl}`,
           new Headers({
-            'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
           }),
       );
-      const data = await response.json()
+      const data = await response.json();
 
       if(data.entry.id) {
-        const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido'
+        const screenToRedirect = data.entry.role === 'admin' ? '/' : '/novo-pedido';
 
         await this.userStore.fetchUser(data.entry);
         createToast('Seja bem vindo!', {
@@ -112,16 +113,16 @@ export default {
         });
         setTimeout(() => (
             this.$router.push(screenToRedirect)
-        ), 1400)
+        ), 1400);
       } else {
         createToast('Falha ao logar, verifique os dados inseridos.', {
           type: 'danger'
         });
       }
-      setTimeout(() => (this.loading = false), 1600)
+      setTimeout(() => (this.loading = false), 1600);
     },
     required (v) {
-      return !!v || 'Campo obrigatório'
+      return !!v || 'Campo obrigatório';
     },
   },
 }
