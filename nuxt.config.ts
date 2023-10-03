@@ -7,6 +7,20 @@ export default defineNuxtConfig({
     // },
     target: "static",
     ssr: false,
+    render: {
+        static: {
+            /**
+             * Whether to add headers to allow access from any origin
+             *
+             * If set to true, all responses of static files from the `public/` directory will contain the following headers:
+             * Access-Control-Allow-Origin *
+             * Access-Control-Allow-Methods GET
+             * Access-Control-Allow-Headers Origin, X-Requested-With, Content-Type, Accept
+             * X-Frame-Options ALLOWALL
+             */
+            allowFromAnyOrigin: true
+        },
+    },
     build: {
         extractCSS: false,
         transpile: ["vuetify"],
