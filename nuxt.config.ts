@@ -27,7 +27,7 @@ export default defineNuxtConfig({
     },
     content: {
         experimental: {
-            clientDb: true,
+            clientDB: true,
         }
     },
     css: ["@/assets/scss/style.scss"],
