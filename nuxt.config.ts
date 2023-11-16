@@ -25,11 +25,19 @@ export default defineNuxtConfig({
         extractCSS: false,
         transpile: ["vuetify"],
     },
+    content: {
+        experimental: {
+            clientDb: true,
+        }
+    },
     css: ["@/assets/scss/style.scss"],
     modules: [
       "@pinia/nuxt",
       "@pinia-plugin-persistedstate/nuxt",
     ],
+    // proxy: {
+    //     'prefix': 'url',
+    // },
     vite: {
         define: {
             "process.env.DEBUG": false,

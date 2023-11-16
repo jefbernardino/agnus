@@ -1,9 +1,8 @@
-import type { IncomingMessage, ServerResponse } from "http";
 import mysql from 'mysql2/promise'
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export default defineEventHandler(async (event) => {
     // @ts-ignore
-    req["db"] = await mysql.createConnection({
+    event["db"] = await mysql.createConnection({
         host: 'agnusplast.com.br',
         port: '3306',
         user: 'agnus365_megalu',
@@ -18,4 +17,4 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         connectionLimit: 0,
         queueLimit: 0,
     });
-}
+});

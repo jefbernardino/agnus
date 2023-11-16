@@ -1,13 +1,11 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import { fromNodeMiddleware, getQuery } from "h3";
 import destr from "destr";
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export default defineEventHandler(async (event) => {
     // @ts-ignore
-    const query = req['params'] ? destr(req['params']) : await getQuery(req);
+    const query = event['params'] ? destr(event['params']) : await getQuery(event);
 
     // @ts-ignore
-    const [rows, fields] = await req["db"].execute("" +
+    const [rows, fields] = await event["db"].execute("" +
         "SELECT * FROM clientes " +
         "LEFT JOIN vendedores as vendedores on clientes.vendedor_id = vendedores.id " +
         "WHERE clientes.id = ?", [query.id]);
@@ -18,4 +16,4 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         entry: rows[0] || {},
         // message: res.statusMessage
     }
-};
+});

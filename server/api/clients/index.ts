@@ -1,8 +1,6 @@
-import type { IncomingMessage, ServerResponse } from "http";
-
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export default defineEventHandler(async (event) => {
     // @ts-ignore
-    const [rows, fields] = await req["db"].execute("SELECT c.*, v.nome as vendedor " +
+    const [rows, fields] = await event["db"].execute("SELECT c.*, v.nome as vendedor " +
         "FROM clientes c " +
         "INNER JOIN vendedores v ON c.vendedor_id = v.id " +
         "ORDER BY c.nome"
@@ -14,4 +12,4 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         entries: rows,
         // message: res.statusMessage
     };
-};
+});

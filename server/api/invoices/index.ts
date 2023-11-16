@@ -1,8 +1,6 @@
-import type { IncomingMessage, ServerResponse } from "http";
-
-export default async (req: IncomingMessage, res: ServerResponse) => {
+export default defineEventHandler(async (event) => {
     // @ts-ignore
-    const [rows, fields] = await req["db"].execute("" +
+    const [rows, fields] = await event["db"].execute("" +
         "SELECT p.*, c.nome AS cliente_nome, v.nome AS vendedor_nome, " +
         "(SELECT SUM(php.valor * php.quantidade)) AS valor_total " +
         "FROM pedidos AS p " +
@@ -16,4 +14,4 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         entries: rows,
         // message: res.statusMessage
     };
-};
+});

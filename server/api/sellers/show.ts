@@ -1,10 +1,8 @@
-import type { IncomingMessage, ServerResponse } from "http";
-import { fromNodeMiddleware, getQuery } from "h3";
 import destr from "destr";
 
-export default async (req: IncomingMessage, res: ServerResponse) => {
-    const query = req['params'] ? destr(req['params']) : await getQuery(req);
-    const [rows, fields] = await req["db"].execute("" +
+export default defineEventHandler(async (event) => {
+    const query = event['params'] ? destr(event['params']) : await getQuery(event);
+    const [rows, fields] = await event["db"].execute("" +
         "SELECT * FROM vendedores WHERE id = ?", [query.id]);
 
     return {
@@ -13,4 +11,4 @@ export default async (req: IncomingMessage, res: ServerResponse) => {
         entry: rows[0] || {},
         // message: res.statusMessage
     }
-};
+});

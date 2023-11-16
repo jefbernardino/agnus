@@ -1,10 +1,8 @@
-import type { IncomingMessage } from "http";
-import { readBody } from "h3";
 import destr from "destr";
 
-export default async (req: IncomingMessage) => {
+export default defineEventHandler(async (event) => {
     // @ts-ignore
-    const body = req['body'] ? destr(req['body']) : await readBody(req);
+    const body = event['body'] ? destr(event['body']) : await readBody(event);
 
     const values = [
         body.empresa_faturar, body.vendedor_id, body.cliente_id, body.data, body.prazo_pagamento,
@@ -12,7 +10,7 @@ export default async (req: IncomingMessage) => {
     ]
 
     // @ts-ignore
-    const addInvoice = await req["db"].execute(
+    const addInvoice = await event["db"].execute(
         "INSERT INTO pedidos (empresa_faturar, vendedor_id, cliente_id, data, prazo_pagamento, data_entrega, ipi, valor, observacao, status, ativo) " +
         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         values,
@@ -21,7 +19,7 @@ export default async (req: IncomingMessage) => {
     const invoiceId = addInvoice[0].insertId
 
     // @ts-ignore
-    await req["db"].query(
+    await event["db"].query(
         'INSERT INTO pedidos_has_produtos (pedido_id, produto_id, espessura, quantidade, valor) VALUES ?',
         // @ts-ignore
         [body.produtos.map(product => [
@@ -30,4 +28,4 @@ export default async (req: IncomingMessage) => {
     );
 
     return { entry: values };
-};
+});

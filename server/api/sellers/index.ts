@@ -1,11 +1,9 @@
-import type { IncomingMessage, ServerResponse } from "http";
-
-export default async (req: IncomingMessage, res: ServerResponse) => {
-    const [rows, fields] = await req["db"].execute("SELECT * FROM vendedores order by nome");
+export default defineEventHandler(async (event) => {
+    const [rows, fields] = await event["db"].execute("SELECT * FROM vendedores order by nome");
     return {
         // status: res.statusCode,
         columns: fields.map((i: any) => i.id),
         entries: rows,
         // message: res.statusMessage
     };
-};
+});
