@@ -5,22 +5,22 @@ export default defineNuxtConfig({
     // app: {
     //     cdnURL: "https://pedidos.grupoagnus.ind.br/",
     // },
-    target: "static",
+    target: "server",
     ssr: false,
-    render: {
-        static: {
-            /**
-             * Whether to add headers to allow access from any origin
-             *
-             * If set to true, all responses of static files from the `public/` directory will contain the following headers:
-             * Access-Control-Allow-Origin *
-             * Access-Control-Allow-Methods GET
-             * Access-Control-Allow-Headers Origin, X-Requested-With, Content-Type, Accept
-             * X-Frame-Options ALLOWALL
-             */
-            allowFromAnyOrigin: true
-        },
-    },
+    // render: {
+    //     static: {
+    //         /**
+    //          * Whether to add headers to allow access from any origin
+    //          *
+    //          * If set to true, all responses of static files from the `public/` directory will contain the following headers:
+    //          * Access-Control-Allow-Origin *
+    //          * Access-Control-Allow-Methods GET
+    //          * Access-Control-Allow-Headers Origin, X-Requested-With, Content-Type, Accept
+    //          * X-Frame-Options ALLOWALL
+    //          */
+    //         allowFromAnyOrigin: true
+    //     },
+    // },
     build: {
         extractCSS: false,
         transpile: ["vuetify"],
@@ -35,12 +35,20 @@ export default defineNuxtConfig({
       "@pinia/nuxt",
       "@pinia-plugin-persistedstate/nuxt",
     ],
-    // proxy: {
-    //     'prefix': 'url',
-    // },
+    proxy: {
+      'prefix': 'url',
+    },
+    router: {
+      options: {
+        strict: true,
+      },
+    },
+    routeRules: {
+      "/**": { prerender: true },
+    },
     vite: {
-        define: {
-            "process.env.DEBUG": false,
-        },
+      define: {
+        "process.env.DEBUG": false,
+      },
     },
 });
