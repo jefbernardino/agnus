@@ -5,9 +5,7 @@ export const axiosPublic = Axios.create({
   baseURL: '',
   timeout: DEFAULT_REQUEST_TIMEOUT,
   headers: {
-    common: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
   },
 })
