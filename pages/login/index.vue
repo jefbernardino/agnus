@@ -97,10 +97,12 @@ export default {
       }
       const response = await fetch(
           `${responseUrl}`,
-          new Headers({
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-          }),
+          {
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            }
+          }
       );
       const data = await response.json()
       // const response = await axiosPublic.get(`${responseUrl}`);

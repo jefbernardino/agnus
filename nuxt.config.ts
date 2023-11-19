@@ -5,8 +5,15 @@ export default defineNuxtConfig({
     // app: {
     //     cdnURL: "https://pedidos.grupoagnus.ind.br/",
     // },
-    target: "server",
+    // target: "server",
     ssr: false,
+    // render: {
+    //     static: {
+    //         setHeaders: (resp) => {
+    //             resp.setHeader('Content-Type', 'application/json')
+    //         },
+    //     },
+    // },
     // render: {
     //     static: {
     //         /**
@@ -49,7 +56,7 @@ export default defineNuxtConfig({
     // serverMiddleware: [
     //   {
     //     path: '/api',
-    //     handler: '~/server/api/**/*', // Caminho para o middleware do servidor que lida com as solicitações API
+    //     handler: '~/server/api/**/*.ts', // Caminho para o middleware do servidor que lida com as solicitações API
     //   },
     // ],
     vite: {
