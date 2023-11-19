@@ -59,6 +59,13 @@ export default defineNuxtConfig({
     //     handler: '~/server/api/**/*.ts', // Caminho para o middleware do servidor que lida com as solicitações API
     //   },
     // ],
+    runtimeConfig: {
+        DATABASE_HOST: process.env.DATABASE_HOST,
+        DATABASE_PORT: process.env.DATABASE_PORT,
+        DATABASE_USER: process.env.DATABASE_USER,
+        DATABASE_PASS: process.env.DATABASE_PASS,
+        DATABASE_DATA: process.env.DATABASE_DATA,
+    },
     vite: {
       define: {
         "process.env.DEBUG": false,
