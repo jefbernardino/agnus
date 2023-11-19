@@ -46,6 +46,12 @@ export default defineNuxtConfig({
     routeRules: {
       "/**": { prerender: true },
     },
+    // serverMiddleware: [
+    //   {
+    //     path: '/api',
+    //     handler: '~/server/api/**/*', // Caminho para o middleware do servidor que lida com as solicitações API
+    //   },
+    // ],
     vite: {
       define: {
         "process.env.DEBUG": false,

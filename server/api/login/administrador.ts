@@ -1,7 +1,6 @@
 import destr from "destr";
 
 export default defineEventHandler(async (event) => {
-    console.log(event);
     const query = event['params'] ? destr(event['params']) : await getQuery(event);
     const [rows, fields] = await event["db"].execute("" +
         "SELECT * " +
