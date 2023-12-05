@@ -11,14 +11,6 @@ export default defineComponent({
         title: userStore.user.nome,
         desc: userStore.user.role === "admin" ? "Administrador" : "Vendedor",
       },
-      // {
-      //   title: "My Inbox",
-      //   desc: "Messages & Emails",
-      // },
-      // {
-      //   title: "My Tasks",
-      //   desc: "To-do and Daily Tasks",
-      // },
     ]);
 
     return { userProfile, userStore }

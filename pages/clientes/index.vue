@@ -2,11 +2,17 @@
 import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
 import { createToast } from "mosha-vue-toastify";
+import { useUserStore } from "@/store/user";
 
+const userStore = useUserStore();
 const entries = ref([]);
 
 const setEntries = async () => {
-  const response = await fetch("/api/clients");
+  const showURL = userStore.user.role === 'admin' ?
+      `/api/clients` :
+      `/api/clients/clientsByUser?id=${userStore.user.id}`;
+
+  const response = await fetch(showURL);
   const data = await response.json()
 
   if('entries' in data) {

@@ -64,7 +64,6 @@ import { axiosPublic } from "@/apis/axios";
 
 definePageMeta({
   layout: "auth",
-  // middleware: ["login"],
 });
 
 export default {
@@ -86,25 +85,12 @@ export default {
 
       this.loading = true
 
-      // admin, megalu
-      // jeferson, 96254600
-
       let responseUrl;
       if (this.profile === 'administrador') {
         responseUrl = `/api/login/administrador?usuario=${this.email}&resgate=${this.password}`;
       } else  {
         responseUrl = `/api/login/vendedor?login=${this.email}&resgate=${this.password}`;
       }
-      // const response = await fetch(
-      //     `${responseUrl}`,
-      //     {
-      //       headers: {
-      //         'Accept': 'application/json',
-      //         'Content-Type': 'application/json',
-      //       }
-      //     }
-      // );
-      // const data = await response.json()
       const response = await axiosPublic.post(`${responseUrl}`);
       const { data } = await response;
 

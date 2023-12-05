@@ -209,7 +209,7 @@ export default {
             <v-select
                 v-model="item.ativo"
                 :items="[
-                  { value: '', title: 'Selecione' },
+                  { value: '', title: 'Ativo?' },
                   { value: '1', title: 'Sim' },
                   { value: '0', title: 'Não' },
                 ]"

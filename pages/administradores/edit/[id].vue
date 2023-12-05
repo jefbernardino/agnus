@@ -32,7 +32,6 @@ const setEntry = async () => {
 onMounted(setEntry)
 
 const updateItem = async () => {
-  // console.log("file", this.file)
   await useFetch(`/api/admin/edit?id=${route.params.id}`, {
     method: 'POST',
     body: item

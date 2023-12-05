@@ -8,13 +8,10 @@ const userStore = useUserStore();
 const route = useRoute();
 
 const entries = ref([]);
-// const invoice = reactive();
 
 const invoice = reactive({
   value: {}
 });
-
-// const entries = ref([]);
 
 const setInvoice = async () => {
   const showURL = userStore.user.role === 'admin' ?

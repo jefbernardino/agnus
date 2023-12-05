@@ -194,7 +194,7 @@ export default {
             <v-select
                 v-model="ativo"
                 :items="[
-                  { value: '', title: 'Selecione' },
+                  { value: '', title: 'Ativo?' },
                   { value: '1', title: 'Sim' },
                   { value: '0', title: 'Não' },
                 ]"
@@ -220,7 +220,7 @@ export default {
                 type="submit"
                 variant="elevated"
             >
-              Adicionar administrador
+              Adicionar cliente
             </v-btn>
           </v-col>
         </v-row>

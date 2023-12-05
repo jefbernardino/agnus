@@ -3,7 +3,6 @@ import moment from "moment";
 import { ref, onMounted } from "vue";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import CurrencyInput from "~/components/shared/CurrencyInput";
-// import Datepicker from "~/components/shared/Datepicker";
 import { useUserStore } from "@/store/user";
 
 const userStore = useUserStore();
@@ -100,12 +99,6 @@ export default {
       };
     },
     async validate() {
-      // this.form =
-      //   this.formData.prazo_pagamento !== '' &&
-      //   this.formData.data_entrega !== '' &&
-      //   this.formData.ipi !== '' &&
-      //   this.formData.empresa_faturar !== '' &&
-      //   this.formData.produtos.length > 0
       this.form = false
     },
     async setTicknessValue(inputValue, indexValue, item) {

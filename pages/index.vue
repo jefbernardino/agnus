@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import SalesOverview from "~~/components/dashboard/salesOverview/SalesOverview.vue";
-// import ProfileCard from "~~/components/dashboard/profile/ProfileCard.vue";
 </script>
 
 <template>
