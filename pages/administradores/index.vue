@@ -2,8 +2,8 @@
 import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
 import { createToast } from "mosha-vue-toastify";
-import ImagePlaceholder from "~/components/shared/ImagePlaceholder";
-import LoadingBar from "~/components/shared/LoadingBar";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import LoadingBar from "@/components/shared/LoadingBar";
 
 const entries = ref([]);
 

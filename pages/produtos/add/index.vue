@@ -1,5 +1,5 @@
 <script>
-import CurrencyInput from "~/components/shared/CurrencyInput";
+import CurrencyInput from "@/components/shared/CurrencyInput";
 import { createToast } from "mosha-vue-toastify";
 
 export default {

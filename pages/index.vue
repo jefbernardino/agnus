@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SalesOverview from "~~/components/dashboard/salesOverview/SalesOverview.vue";
+import SalesOverview from "@/components/dashboard/salesOverview/SalesOverview.vue";
 </script>
 
 <template>

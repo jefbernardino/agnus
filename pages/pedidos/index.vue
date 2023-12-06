@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import { dateToBr, formatCurrency } from "~/utils/shared_utils";
 import { useUserStore } from "@/store/user";
-import LoadingBar from "~/components/shared/LoadingBar";
+import LoadingBar from "@/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const entries = ref([]);

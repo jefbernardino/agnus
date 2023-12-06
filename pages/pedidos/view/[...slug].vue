@@ -3,7 +3,7 @@ import { onMounted, reactive, ref } from "vue";
 import { useRoute } from "nuxt/app";
 import { dateToBr, formatCurrency, isActive } from "~/utils/shared_utils";
 import { useUserStore } from "@/store/user";
-import LoadingBar from "~/components/shared/LoadingBar";
+import LoadingBar from "@/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const route = useRoute();

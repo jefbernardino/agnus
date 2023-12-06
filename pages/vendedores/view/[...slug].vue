@@ -2,7 +2,7 @@
 import { reactive, onMounted } from "vue";
 import { useRoute } from "nuxt/app";
 import { formatCurrency, isActive } from "~/utils/shared_utils";
-import LoadingBar from "~/components/shared/LoadingBar.vue";
+import LoadingBar from "@/components/shared/LoadingBar.vue";
 
 const route = useRoute();
 

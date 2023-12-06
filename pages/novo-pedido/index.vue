@@ -1,9 +1,10 @@
 <script setup>
+import moment from "moment";
 import { ref, onMounted } from "vue";
-import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
-import CurrencyInput from "~/components/shared/CurrencyInput";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
+import CurrencyInput from "@/components/shared/CurrencyInput";
 import { useUserStore } from "@/store/user";
-import LoadingBar from "~/components/shared/LoadingBar";
+import LoadingBar from "@/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const entries = ref([]);

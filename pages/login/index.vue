@@ -5,7 +5,7 @@
           v-model="form"
           @submit.prevent="onSubmit"
       >
-        <img src="~/assets/images/logo.png" alt="Agnus Plast" />
+        <img src="@/assets/images/logo.png" alt="Agnus Plast" />
         <v-radio-group v-model="profile" inline>
           <template v-slot:label>
             <div>Qual o perfil de seu usuário?</div>

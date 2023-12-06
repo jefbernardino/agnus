@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
 import { createToast } from "mosha-vue-toastify";
 import { useUserStore } from "@/store/user";
-import LoadingBar from "~/components/shared/LoadingBar.vue";
+import LoadingBar from "@/components/shared/LoadingBar.vue";
 
 const userStore = useUserStore();
 const entries = ref([]);

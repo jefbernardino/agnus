@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <img src="~/assets/images/bg_user.png" class="w-100" />
+    <img src="@/assets/images/bg_user.png" class="w-100" />
     <div class="d-flex justify-center mt-n15">
       <v-avatar size="100">
         <img src="https://agnusplast.com.br/pedidos/theme/admin/img/placeholders/avatars/avatar.jpg" width="100" alt="user" />
