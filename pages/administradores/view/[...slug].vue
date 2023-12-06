@@ -1,7 +1,8 @@
 <script setup>
 import { reactive, onMounted } from "vue";
 import { useRoute } from "nuxt/app";
-import { formatCurrency, isActive } from "~/utils/shared_utils";
+import { isActive } from "~/utils/shared_utils";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const route = useRoute();
 
@@ -40,7 +41,8 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <v-card-text v-model="administrador">
+    <LoadingBar v-if="administrador.id == ''" />
+    <v-card-text v-else v-model="administrador">
       <h2 class="mb-4 mt-4">Administrador: {{ administrador.nome }}</h2>
       <v-col cols="12">
         <v-card color="#598bc4" theme="dark">

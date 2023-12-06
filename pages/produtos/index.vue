@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { formatCurrency, isActive } from "~/utils/shared_utils";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import { createToast } from "mosha-vue-toastify";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const entries = ref([]);
 
@@ -46,7 +47,8 @@ onMounted(setEntries)
           </v-btn>
         </v-col>
       </v-row>
-      <v-table fixed-header height="72vh">
+      <LoadingBar v-if="entries.length == 0" />
+      <v-table v-else fixed-header height="72vh">
         <thead>
         <tr>
           <th class="text-left">Imagem</th>

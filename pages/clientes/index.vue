@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { isActive } from "~/utils/shared_utils";
 import { createToast } from "mosha-vue-toastify";
 import { useUserStore } from "@/store/user";
+import LoadingBar from "~/components/shared/LoadingBar.vue";
 
 const userStore = useUserStore();
 const entries = ref([]);
@@ -51,7 +52,8 @@ onMounted(setEntries)
           </v-btn>
         </v-col>
       </v-row>
-      <v-table fixed-header height="72vh">
+      <LoadingBar v-if="entries.length == 0" />
+      <v-table v-else fixed-header height="72vh">
         <thead>
         <tr>
           <th class="text-left" width="22%">Nome</th>

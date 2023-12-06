@@ -1,9 +1,9 @@
 <script setup>
-import moment from "moment";
 import { ref, onMounted } from "vue";
 import ImagePlaceholder from "~/components/shared/ImagePlaceholder.vue";
 import CurrencyInput from "~/components/shared/CurrencyInput";
 import { useUserStore } from "@/store/user";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const entries = ref([]);
@@ -211,7 +211,8 @@ export default {
           </v-col>
         </v-row>
 
-        <v-table fixed-header height="64vh">
+        <LoadingBar v-if="entries.length == 0" />
+        <v-table v-else fixed-header height="64vh">
           <thead>
             <tr>
               <th class="text-left">Imagem</th>

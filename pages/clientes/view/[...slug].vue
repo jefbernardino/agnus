@@ -1,7 +1,8 @@
 <script setup>
 import { reactive, onMounted } from "vue";
 import { useRoute } from "nuxt/app";
-import { formatCurrency, isActive } from "~/utils/shared_utils";
+import { isActive } from "~/utils/shared_utils";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const route = useRoute();
 
@@ -47,7 +48,8 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <v-card-text v-model="client">
+    <LoadingBar v-if="client.id == ''" />
+    <v-card-text v-else v-model="client">
       <h2 class="mb-4 mt-4">Cliente: {{ client.razao_social }}</h2>
       <v-col cols="12">
         <v-card color="#598bc4" theme="dark" class="pb-4">

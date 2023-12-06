@@ -3,6 +3,7 @@ import { onMounted, reactive, ref } from "vue";
 import { useRoute } from "nuxt/app";
 import { dateToBr, formatCurrency, isActive } from "~/utils/shared_utils";
 import { useUserStore } from "@/store/user";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const route = useRoute();
@@ -41,7 +42,8 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <v-card-text v-model="invoice">
+    <LoadingBar v-if="entries.length == 0" />
+    <v-card-text v-else v-model="invoice">
       <h2 class="my-4">
         Detalhes do pedido: #{{ invoice.value.id }}, 
         de {{ invoice.value.data && dateToBr(invoice.value.data) }}

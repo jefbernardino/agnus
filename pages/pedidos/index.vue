@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import { dateToBr, formatCurrency } from "~/utils/shared_utils";
 import { useUserStore } from "@/store/user";
+import LoadingBar from "~/components/shared/LoadingBar";
 
 const userStore = useUserStore();
 const entries = ref([]);
@@ -36,7 +37,8 @@ onMounted(setEntries)
           </v-btn>
         </v-col>
       </v-row>
-      <v-table fixed-header height="72vh">
+      <LoadingBar v-if="entries.length == 0" />
+      <v-table v-else fixed-header height="72vh">
         <thead>
         <tr>
           <th class="text-left">Empresa</th>

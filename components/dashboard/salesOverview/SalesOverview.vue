@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import GoogleChart from "./Gchart";
+
 const elementVisible = ref(false);
 
 onMounted(() => {
@@ -9,10 +10,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- ------------------------------------ -->
-  <!-- html -->
-  <!-- ------------------------------------ -->
-
   <v-card>
     <v-card-text>
       <div class="d-sm-flex align-center">
