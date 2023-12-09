@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import { useUserStore } from "@/store/user";
 import sidebarItems from "./sidebarItems";
 import sidebarItemsAdmin from "./sidebarItemsAdmin";
+import { version } from '@/package.json'
 
 const userStore = useUserStore();
 
@@ -11,6 +12,7 @@ const sidebarMenu = ref(userStore.user.role === 'admin' ? sidebarItemsAdmin : si
 
 <template>
   <div>
+    <strong class="version">v. {{ version }}</strong>
     <!-- ---------------------------------------------- -->
     <!---Navigation -->
     <!-- ---------------------------------------------- -->

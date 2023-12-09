@@ -53,6 +53,8 @@
           Acessar
         </v-btn>
       </v-form>
+      <br />
+      <strong>v. {{ appVersion }}</strong>
     </v-card>
   </v-container>
 </template>
@@ -61,6 +63,9 @@
 import { createToast } from 'mosha-vue-toastify';
 import { useUserStore } from "@/store/user";
 import { axiosPublic } from "@/apis/axios";
+
+import { version } from '@/package.json'
+
 
 definePageMeta({
   layout: "auth",
@@ -73,6 +78,7 @@ export default {
     return { userStore };
   },
   data: () => ({
+    appVersion: version,
     form: false,
     profile: 'administrador',
     email: null,
