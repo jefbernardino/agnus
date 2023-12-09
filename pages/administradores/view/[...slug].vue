@@ -41,7 +41,7 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <LoadingBar v-if="administrador.id == ''" />
+    <LoadingBar v-if="administrador.id === ''" />
     <v-card-text v-else v-model="administrador">
       <h2 class="mb-4 mt-4">Administrador: {{ administrador.nome }}</h2>
       <v-col cols="12">

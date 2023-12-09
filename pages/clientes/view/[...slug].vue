@@ -48,7 +48,7 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <LoadingBar v-if="client.id == ''" />
+    <LoadingBar v-if="client.id === ''" />
     <v-card-text v-else v-model="client">
       <h2 class="mb-4 mt-4">Cliente: {{ client.razao_social }}</h2>
       <v-col cols="12">

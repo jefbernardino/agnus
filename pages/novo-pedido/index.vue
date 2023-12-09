@@ -212,7 +212,7 @@ export default {
           </v-col>
         </v-row>
 
-        <LoadingBar v-if="entries.length == 0" />
+        <LoadingBar v-if="entries.length === 0" />
         <v-table v-else fixed-header height="64vh">
           <thead>
             <tr>

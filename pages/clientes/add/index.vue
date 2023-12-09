@@ -1,11 +1,14 @@
 <script>
 import { createToast } from "mosha-vue-toastify";
+import { useUserStore } from "@/store/user";
+
+const userStore = useUserStore();
 
 export default {
   name: "clientAdd",
   data: () => ({
     form: false,
-    vendedor_id: 6,
+    vendedor_id: userStore.user.id,
     razao_social: null,
     nome: null,
     email: null,

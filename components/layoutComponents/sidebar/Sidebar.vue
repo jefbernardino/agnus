@@ -18,17 +18,17 @@ const sidebarMenu = ref(userStore.user.role === 'admin' ? sidebarItemsAdmin : si
       <div class="profile">
         <div class="profile-pic">
           <v-avatar size="46">
-            <img 
+            <img
               v-if="userStore.user.imagem"
-              :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}` || `~assets/images/user-white.svg`" 
-              :alt="`${userStore.user.nome}`"
+              :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}`"
               width="46"
+              :alt="`${userStore.user.nome}`"
             />
-            <img 
+            <img
               v-else
-              src="https://agnusplast.com.br/pedidos/theme/admin/img/placeholders/avatars/avatar.jpg"
-              :alt="`${userStore.user.nome}`"
+              src="@/assets/images/user-white.svg"
               width="46"
+              :alt="`${userStore.user.nome}`"
             />
           </v-avatar>
         </div>

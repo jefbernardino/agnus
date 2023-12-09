@@ -40,7 +40,7 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <LoadingBar v-if="seller.id == ''" />
+    <LoadingBar v-if="seller.id === ''" />
     <v-card-text v-else v-model="seller">
       <h2 class="mb-4 mt-4">Vendedor: {{ seller.nome }} ({{ seller.login }})</h2>
       <v-col cols="12">

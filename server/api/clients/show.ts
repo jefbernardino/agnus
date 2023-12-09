@@ -6,8 +6,8 @@ export default defineEventHandler(async (event) => {
 
     // @ts-ignore
     const [rows, fields] = await event["db"].execute("" +
-        "SELECT * FROM clientes " +
-        "LEFT JOIN vendedores as vendedores on clientes.vendedor_id = vendedores.id " +
+        "SELECT clientes.* FROM clientes " +
+        "LEFT JOIN vendedores on clientes.vendedor_id = vendedores.id " +
         "WHERE clientes.id = ?", [query.id]);
 
     return {

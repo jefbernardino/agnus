@@ -32,7 +32,7 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <LoadingBar v-if="product.nome == ''" />
+    <LoadingBar v-if="product.nome === ''" />
     <v-card-text v-else v-model="product">
       <h2 class="mb-4 mt-4">Produto: {{ product.nome }}</h2>
       <v-col cols="12">

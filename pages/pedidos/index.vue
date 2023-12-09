@@ -37,41 +37,41 @@ onMounted(setEntries)
           </v-btn>
         </v-col>
       </v-row>
-      <LoadingBar v-if="entries.length == 0" />
+      <LoadingBar v-if="entries.length === 0" />
       <v-table v-else fixed-header height="72vh">
         <thead>
-        <tr>
-          <th class="text-left">Empresa</th>
-          <th class="text-left">Vendedor</th>
-          <th class="text-left">Data pedido</th>
-          <th class="text-left" width="20%">Cliente</th>
-          <th class="text-right">Valor</th>
-          <!-- <th class="text-left">Observação</th> -->
-          <th class="text-left">Status</th>
-          <th class="text-left">Ações</th>
-        </tr>
+          <tr>
+            <th class="text-left">Empresa</th>
+            <th class="text-left">Vendedor</th>
+            <th class="text-left">Data pedido</th>
+            <th class="text-left" width="20%">Cliente</th>
+            <th class="text-right">Valor</th>
+            <!-- <th class="text-left">Observação</th> -->
+            <th class="text-left">Status</th>
+            <th class="text-left">Ações</th>
+          </tr>
         </thead>
         <tbody>
-        <tr v-for="item in entries" :key="item.id">
-          <!-- TODO: Criar os relacionamentos -->
-          <td>{{ item.empresa_faturar }}</td>
-          <td>{{ item.vendedor_nome }}</td>
-          <td>{{ dateToBr(item.data) }}</td>
-          <td>{{ item.cliente_nome }}</td>
-          <td class="text-right">{{ formatCurrency(item.valor_total) }}</td>
-          <!-- <td>{{ item.observacao }}</td> -->
-          <td>{{ item.status }}</td>
-          <td>
-            <div class="d-flex flex-wrap gap-2">
-              <v-tooltip location="top" :text="item.observacao">
-                <template v-slot:activator="{ props }">
-                  <v-btn elevation="0" color="warning" size="small" v-bind="props">Observação</v-btn>
-                </template>
-              </v-tooltip>
-              <v-btn elevation="0" color="primary" size="small" :to="`/pedidos/view/${item.id}`">Visualizar</v-btn>
-            </div>
-          </td>
-        </tr>
+          <tr v-for="item in entries" :key="item.id">
+            <!-- TODO: Criar os relacionamentos -->
+            <td>{{ item.empresa_faturar }}</td>
+            <td>{{ item.vendedor_nome }}</td>
+            <td>{{ dateToBr(item.data) }}</td>
+            <td>{{ item.cliente_nome }}</td>
+            <td class="text-right">{{ formatCurrency(item.valor_total) }}</td>
+            <!-- <td>{{ item.observacao }}</td> -->
+            <td>{{ item.status }}</td>
+            <td>
+              <div class="d-flex flex-wrap gap-2">
+                <v-tooltip location="top" :text="item.observacao">
+                  <template v-slot:activator="{ props }">
+                    <v-btn elevation="0" color="warning" size="small" v-bind="props">Observação</v-btn>
+                  </template>
+                </v-tooltip>
+                <v-btn elevation="0" color="primary" size="small" :to="`/pedidos/view/${item.id}`">Visualizar</v-btn>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </v-table>
     </v-card-text>

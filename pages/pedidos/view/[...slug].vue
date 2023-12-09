@@ -42,7 +42,7 @@ onMounted(setEntry)
 
 <template>
   <v-card>
-    <LoadingBar v-if="entries.length == 0" />
+    <LoadingBar v-if="entries.length === 0" />
     <v-card-text v-else v-model="invoice">
       <h2 class="my-4">
         Detalhes do pedido: #{{ invoice.value.id }}, 

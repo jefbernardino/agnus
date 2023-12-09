@@ -47,7 +47,7 @@ onMounted(setEntries)
           </v-btn>
         </v-col>
       </v-row>
-      <LoadingBar v-if="entries.length == 0" />
+      <LoadingBar v-if="entries.length === 0" />
       <v-table v-else fixed-header height="72vh">
         <thead>
         <tr>

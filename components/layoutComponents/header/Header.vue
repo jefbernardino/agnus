@@ -36,10 +36,17 @@ export default defineComponent({
         :ripple="false"
       >
         <v-avatar size="36">
-          <img 
-            :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}` || `~assets/images/user-white.svg`" 
+          <img
+            v-if="userStore.user.imagem"
+            :src="`https://agnusplast.com.br/pedidos/img/${userStore.user.role === 'admin' ? 'administradores' : 'vendedores'}/${userStore.user.imagem}`"
             width="36" 
             :alt="`${userStore.user.nome}`" 
+          />
+          <img
+            v-else
+            src="@/assets/images/user-white.svg"
+            width="36"
+            :alt="`${userStore.user.nome}`"
           />
         </v-avatar>
       </v-btn>

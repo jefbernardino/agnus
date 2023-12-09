@@ -1,11 +1,13 @@
 <script setup>
 import { onMounted, reactive } from "vue";
 import { createToast } from "mosha-vue-toastify";
+import { useUserStore } from "@/store/user";
 
 const route = useRoute()
+const userStore = useUserStore();
 
 const item = reactive({
-  vendedor_id: 6,
+  vendedor_id: userStore.user.id,
   razao_social: "",
   nome: "",
   email: "",
@@ -24,6 +26,7 @@ const setEntry = async () => {
   const data = await response.json()
 
   if('entry' in data) {
+    item.id = data.entry.id
     item.vendedor_id = data.entry.vendedor_id
     item.razao_social = data.entry.razao_social
     item.nome = data.entry.nome
@@ -81,7 +84,7 @@ export default {
 <template>
   <v-card v-model="item">
     <v-card-text>
-      <h2 class="mb-12 mt-4">Editar administrador: {{ item.nome }}</h2>
+      <h2 class="mb-12 mt-4">Editar cliente: {{ item.nome }}</h2>
       <v-form
           v-model="form"
           @submit.prevent="updateItem"
