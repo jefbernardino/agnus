@@ -1,5 +1,5 @@
 {
-  "version": "1.0.10",
+  "version": "1.0.14",
   "private": true,
   "homepage": "https://pedidos.grupoagnus.ind.br",
   "scripts": {
@@ -17,6 +17,7 @@
     "axios": "^1.2.2",
     "moment": "^2.29.4",
     "mosha-vue-toastify": "^1.0.23",
+    "nodemailer": "^6.9.7",
     "pinia": "^2.0.33",
     "sass": "^1.53.0",
     "vue": "^3.2.34",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
+    "@types/nodemailer": "^6.4.14",
     "md5-js-tools": "^1.0.2",
     "mysql2": "^2.3.3",
     "nuxt": "3.0.0"

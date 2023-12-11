@@ -52,7 +52,8 @@ export default {
         status: 'Aguardando',
         ativo: '1',
         produtos: [],
-      }
+      },
+      loading: false,
     }
   },
   methods: {
@@ -82,8 +83,13 @@ export default {
           type: 'success'
         });
         setTimeout(() => (
+          createToast('Enviando e-mail, aguarde...', {
+            type: 'warning'
+          })
+        ), 600);
+        setTimeout(() => (
             location.assign('/novo-pedido')
-        ), 1200);
+        ), 2500);
       }).catch(() => {
         createToast('Erro ao adicionar pedido.', {
           type: 'error'
@@ -296,7 +302,7 @@ export default {
                 />
               </td>
             </tr>
-            <tr>
+            <!--<tr>
               <td colspan="5">
                 <v-textarea
                   v-model="formData.observacao"
@@ -314,9 +320,23 @@ export default {
                   Salvar pedido
                 </v-btn>
               </td>
-            </tr>
+            </tr>-->
           </tbody>
         </v-table>
+        <v-textarea
+            v-model="formData.observacao"
+            label="Observação"
+            variant="outlined"
+            density="compact"
+            class="mt-5"
+            rows="4"
+        ></v-textarea>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn type="submit" class="mt-5" color="green" :prepend-icon="loading ? 'mdi-loading' : 'mdi-check'">
+            Salvar pedido
+          </v-btn>
+        </v-card-actions>
       </v-card-text>
     </v-card>
   </v-form>
