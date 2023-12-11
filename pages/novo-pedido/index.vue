@@ -53,7 +53,7 @@ export default {
         ativo: '1',
         produtos: [],
       },
-      loading: false,
+      loading: true,
     }
   },
   methods: {
@@ -144,8 +144,9 @@ export default {
   <v-form v-model="form" @submit.prevent="onSubmit">
     <v-card>
       <v-card-text>
-        <h2 class="mb-4 mt-4">Faça seu pedido</h2>
-        <h4 class="mb-4">Preencha os campos abaixo corretamente:</h4>
+        <h2 class="mb-4 mt-2">
+          Faça seu pedido - <small>Preencha os campos abaixo corretamente:</small>
+        </h2>
         <v-row>
           <v-col cols="12" md="3">
             <v-select
@@ -219,7 +220,7 @@ export default {
         </v-row>
 
         <LoadingBar v-if="entries.length === 0" />
-        <v-table v-else fixed-header height="64vh">
+        <v-table v-else fixed-header density="compact" height="50vh">
           <thead>
             <tr>
               <th class="text-left">Imagem</th>
@@ -324,17 +325,17 @@ export default {
           </tbody>
         </v-table>
         <v-textarea
-            v-model="formData.observacao"
-            label="Observação"
-            variant="outlined"
-            density="compact"
-            class="mt-5"
-            rows="4"
+          v-model="formData.observacao"
+          label="Observação"
+          variant="outlined"
+          density="compact"
+          class="mt-5 mb-0"
+          rows="3"
         ></v-textarea>
-        <v-card-actions>
+        <v-card-actions class="ma-0 pa-0">
           <v-spacer></v-spacer>
-          <v-btn type="submit" class="mt-5" color="green" :prepend-icon="loading ? 'mdi-loading' : 'mdi-check'">
-            Salvar pedido
+          <v-btn type="submit" class="mt-5" color="green" :prepend-icon="loading ? 'mdi-exclamation' : 'mdi-check'">
+            {{ loading ? 'Enviando pedido...' : 'Salvar pedido' }}
           </v-btn>
         </v-card-actions>
       </v-card-text>
