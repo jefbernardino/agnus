@@ -1,5 +1,4 @@
 <script setup>
-import moment from "moment";
 import { ref, onMounted } from "vue";
 import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 import CurrencyInput from "@/components/shared/CurrencyInput";
@@ -7,8 +6,10 @@ import { useUserStore } from "@/store/user";
 import LoadingBar from "@/components/shared/LoadingBar";
 
 const userStore = useUserStore();
+
 const entries = ref([]);
 const clients = ref([]);
+const user = ref([]);
 
 const setEntries = async () => {
   const response = await fetch("/api/invoices/new");
@@ -28,11 +29,19 @@ const setClients = async () => {
   }
 }
 
+const setUser = async () => {
+  if('user' in userStore) {
+    user.value = userStore.user
+  }
+}
+
 onMounted(setEntries)
 onMounted(setClients)
+onMounted(setUser)
 </script>
 
 <script>
+import moment from "moment";
 import { createToast } from "mosha-vue-toastify";
 
 export default {
@@ -41,7 +50,7 @@ export default {
       form: false,
       formData: {
         empresa_faturar: 'Agnusplast',
-        vendedor_id: 2,
+        vendedor_id: 23,
         cliente_id: null,
         data: moment(new Date().toJSON()).format('YYYY-MM-DD'),
         prazo_pagamento: '',
@@ -52,8 +61,10 @@ export default {
         status: 'Aguardando',
         ativo: '1',
         produtos: [],
+        created: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
+        modified: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
       },
-      loading: true,
+      loading: false,
     }
   },
   methods: {
@@ -68,7 +79,7 @@ export default {
           cliente_id: this.formData.cliente_id,
           data: this.formData.data,
           prazo_pagamento: this.formData.prazo_pagamento,
-          data_entrega: moment(this.formData.data_entrega).format('YYYY-MM-DD'),
+          data_entrega: moment(this.formData.data_entrega, "DD/MM/YYYY").format('YYYY-MM-DD'),
           ipi: this.formData.ipi,
           valor: this.formData.valor,
           observacao: this.formData.observacao,
@@ -77,6 +88,8 @@ export default {
           produtos: this.formData.produtos.filter(function(el){
             return el['valor'] !== "";
           }),
+          created: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
+          modified: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
         },
       }).then(() => {
         createToast('Pedido adicionado com sucesso.', {
@@ -97,13 +110,6 @@ export default {
       }).finally(() => {
         this.loading = false
       });
-    },
-    debounce(func, timeout = 500){
-      let timer;
-      return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-      };
     },
     async validate() {
       this.form = false
@@ -142,6 +148,7 @@ export default {
 
 <template>
   <v-form v-model="form" @submit.prevent="onSubmit">
+    <pre>{{ formData }}</pre>
     <v-card>
       <v-card-text>
         <h2 class="mb-4 mt-2">
@@ -190,7 +197,6 @@ export default {
           </v-col>
 
           <v-col cols="12" md="2">
-            <!-- <Datepicker /> -->
             <v-text-field
               v-model="formData.data_entrega"
               label="Data da entrega"
@@ -220,14 +226,14 @@ export default {
         </v-row>
 
         <LoadingBar v-if="entries.length === 0" />
-        <v-table v-else fixed-header density="compact" height="50vh">
+        <v-table v-else fixed-header density="compact">
           <thead>
             <tr>
               <th class="text-left">Imagem</th>
               <th class="text-left">Produto</th>
               <th class="text-right" width="15%">Espessura (micra)</th>
               <th class="text-right" width="15%">Quantidade (Kg)</th>
-              <th class="text-right" width="15%">Preço Unitário</th>
+              <th class="text-right" width="15%">Preço Unitário (R$)</th>
             </tr>
           </thead>
           <tbody>
