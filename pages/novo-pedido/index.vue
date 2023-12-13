@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 import CurrencyInput from "@/components/shared/CurrencyInput";
-import { useUserStore } from "@/store/user";
+import ImagePlaceholder from "@/components/shared/ImagePlaceholder";
 import LoadingBar from "@/components/shared/LoadingBar";
+import { useUserStore } from "@/store/user";
 
 const userStore = useUserStore();
 
@@ -50,7 +50,7 @@ export default {
       form: false,
       formData: {
         empresa_faturar: 'Agnusplast',
-        vendedor_id: 23,
+        vendedor_id: 0,
         cliente_id: null,
         data: moment(new Date().toJSON()).format('YYYY-MM-DD'),
         prazo_pagamento: '',
@@ -61,8 +61,8 @@ export default {
         status: 'Aguardando',
         ativo: '1',
         produtos: [],
-        created: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
-        modified: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
+        created: moment(new Date()).format('YYYY-MM-DD HH:MM:SS'),
+        modified: moment(new Date()).format('YYYY-MM-DD HH:MM:SS'),
       },
       loading: false,
     }
@@ -70,6 +70,21 @@ export default {
   methods: {
     async onSubmit () {
       this.loading = true
+
+      let total = 0;
+
+      let prods = this.formData.produtos.filter(function(el){
+        return el['valor'] !== "";
+      })
+
+      prods.map((product) => {
+        if(product.produto_id) {
+          let qtde = parseFloat(product.quantidade.replace('.', '').replace(',', '.'))
+          let val = parseFloat(product.valor.replace('.', '').replace(',', '.'))
+
+          total += (qtde * val)
+        }
+      });
 
       await useFetch(`/api/invoices/add`, {
         method: 'POST',
@@ -81,25 +96,25 @@ export default {
           prazo_pagamento: this.formData.prazo_pagamento,
           data_entrega: moment(this.formData.data_entrega, "DD/MM/YYYY").format('YYYY-MM-DD'),
           ipi: this.formData.ipi,
-          valor: this.formData.valor,
+          valor: total,
           observacao: this.formData.observacao,
           status: this.formData.status,
           ativo: this.formData.ativo,
           produtos: this.formData.produtos.filter(function(el){
             return el['valor'] !== "";
           }),
-          created: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
-          modified: moment(new Date().toJSON()).format('YYYY-MM-DD HH:MM:SS'),
+          created: moment(new Date()).format('YYYY-MM-DD HH:MM:SS'),
+          modified: moment(new Date()).format('YYYY-MM-DD HH:MM:SS'),
         },
       }).then(() => {
         createToast('Pedido adicionado com sucesso.', {
           type: 'success'
         });
-        setTimeout(() => (
-          createToast('Enviando e-mail, aguarde...', {
-            type: 'warning'
-          })
-        ), 600);
+        // setTimeout(() => (
+        //   createToast('Enviando e-mail, aguarde...', {
+        //     type: 'warning'
+        //   })
+        // ), 600);
         setTimeout(() => (
             location.assign('/novo-pedido')
         ), 2500);
@@ -111,8 +126,11 @@ export default {
         this.loading = false
       });
     },
-    async validate() {
+    async validate(sellerId) {
       this.form = false
+      if (sellerId) {
+        this.formData.vendedor_id = sellerId
+      }
     },
     async setTicknessValue(inputValue, indexValue, item) {
       let value = isNaN(inputValue) ? inputValue.target.value : inputValue
@@ -148,7 +166,7 @@ export default {
 
 <template>
   <v-form v-model="form" @submit.prevent="onSubmit">
-    <pre>{{ formData }}</pre>
+    <pre>{{ formData.produtos }}</pre>
     <v-card>
       <v-card-text>
         <h2 class="mb-4 mt-2">
@@ -165,7 +183,7 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
-              @update:modelValue="validate()"
+              @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
 
@@ -182,7 +200,7 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
-              @update:modelValue="validate()"
+              @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
 
@@ -192,7 +210,7 @@ export default {
               label="Prazo de pgto"
               variant="outlined"
               density="comfortable"
-              @change="validate()"
+              @change="validate(user.id)"
             ></v-text-field>
           </v-col>
 
@@ -202,7 +220,7 @@ export default {
               label="Data da entrega"
               variant="outlined"
               density="comfortable"
-              @change="validate()"
+              @change="validate(user.id)"
             ></v-text-field>
           </v-col>
 
@@ -220,7 +238,7 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
-              @update:modelValue="validate()"
+              @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
         </v-row>
@@ -340,7 +358,7 @@ export default {
         ></v-textarea>
         <v-card-actions class="ma-0 pa-0">
           <v-spacer></v-spacer>
-          <v-btn type="submit" class="mt-5" color="green" :prepend-icon="loading ? 'mdi-exclamation' : 'mdi-check'">
+          <v-btn type="submit" class="mt-5" color="green" :disabled="loading" :prepend-icon="loading ? 'mdi-exclamation' : 'mdi-check'">
             {{ loading ? 'Enviando pedido...' : 'Salvar pedido' }}
           </v-btn>
         </v-card-actions>

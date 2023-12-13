@@ -4,19 +4,25 @@ import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
     ssr: false,
     build: {
-        extractCSS: false,
-        transpile: ["vuetify"],
+      extractCSS: false,
+      transpile: ["vuetify"],
     },
     content: {
-        experimental: {
-            clientDB: true,
-        }
+      experimental: {
+        clientDB: true,
+      }
     },
     css: ["@/assets/scss/style.scss"],
     modules: [
       "@pinia/nuxt",
       "@pinia-plugin-persistedstate/nuxt",
     ],
+    piniaPersistedstate: {
+      cookieOptions: {
+        sameSite: 'strict',
+      },
+      storage: 'sessionStorage'
+    },
     proxy: {
       'prefix': 'url',
     },
@@ -29,11 +35,11 @@ export default defineNuxtConfig({
       "/**": { prerender: true },
     },
     runtimeConfig: {
-        DATABASE_HOST: process.env.DATABASE_HOST,
-        DATABASE_PORT: process.env.DATABASE_PORT,
-        DATABASE_USER: process.env.DATABASE_USER,
-        DATABASE_PASS: process.env.DATABASE_PASS,
-        DATABASE_DATA: process.env.DATABASE_DATA,
+      DATABASE_HOST: process.env.DATABASE_HOST,
+      DATABASE_PORT: process.env.DATABASE_PORT,
+      DATABASE_USER: process.env.DATABASE_USER,
+      DATABASE_PASS: process.env.DATABASE_PASS,
+      DATABASE_DATA: process.env.DATABASE_DATA,
     },
     vite: {
       define: {

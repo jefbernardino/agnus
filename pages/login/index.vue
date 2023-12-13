@@ -66,7 +66,6 @@ import { axiosPublic } from "@/apis/axios";
 
 import { version } from '@/package.json'
 
-
 definePageMeta({
   layout: "auth",
 });

@@ -12,10 +12,6 @@ export const useUserStore = defineStore('userStore', {
       this.user = data;
     },
     async logout() {
-      // console.log('user logout')
-      // this.$patch({
-      //   user: {},
-      // })
       this.user = null
     },
   },

@@ -63,8 +63,6 @@ export default defineEventHandler(async (event) => {
 
     let total = 0;
 
-    // let productList = []
-
     let productList = body.produtos.map((product) => {
         if(product.produto_id) {
             let qtde = parseFloat(product.quantidade.replace('.', '').replace(',', '.'))
