@@ -166,7 +166,6 @@ export default {
 
 <template>
   <v-form v-model="form" @submit.prevent="onSubmit">
-    <pre>{{ formData.produtos }}</pre>
     <v-card>
       <v-card-text>
         <h2 class="mb-4 mt-2">
