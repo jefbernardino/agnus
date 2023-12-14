@@ -82,7 +82,11 @@ export default defineEventHandler(async (event) => {
     try {
         await transporter.sendMail({
             from: 'contato@agnusplast.com.br',
-            to: 'jefbernardino@gmail.com',
+            to: [
+                'comercial@agnusplast.com.br',
+                'pedidos@agnusplast.com.br',
+                `${seller.email}`,
+            ],
             subject: 'Novo pedido feito pelo site',
             // text: 'TESTE DE EMAIL!',
             html: `
