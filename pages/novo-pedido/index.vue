@@ -182,6 +182,7 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
+              hide-details
               @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
@@ -199,6 +200,7 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
+              hide-details
               @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
@@ -209,6 +211,7 @@ export default {
               label="Prazo de pgto"
               variant="outlined"
               density="comfortable"
+              hide-details
               @change="validate(user.id)"
             ></v-text-field>
           </v-col>
@@ -219,6 +222,7 @@ export default {
               label="Data da entrega"
               variant="outlined"
               density="comfortable"
+              hide-details
               @change="validate(user.id)"
             ></v-text-field>
           </v-col>
@@ -237,13 +241,15 @@ export default {
               variant="outlined"
               density="comfortable"
               single-line
+              hide-details
+              class="mb-8"
               @update:modelValue="validate(user.id)"
             ></v-select>
           </v-col>
         </v-row>
 
         <LoadingBar v-if="entries.length === 0" />
-        <v-table v-else fixed-header density="compact">
+        <v-table v-else fixed-header density="compact" class="v-seller-table">
           <thead>
             <tr>
               <th class="text-left">Imagem</th>
@@ -357,7 +363,7 @@ export default {
         ></v-textarea>
         <v-card-actions class="ma-0 pa-0">
           <v-spacer></v-spacer>
-          <v-btn type="submit" class="mt-5" color="green" :disabled="loading" :prepend-icon="loading ? 'mdi-exclamation' : 'mdi-check'">
+          <v-btn type="submit" class="mt-5" color="success" :disabled="loading" :prepend-icon="loading ? 'mdi-exclamation' : 'mdi-check'">
             {{ loading ? 'Enviando pedido...' : 'Salvar pedido' }}
           </v-btn>
         </v-card-actions>

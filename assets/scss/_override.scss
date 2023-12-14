@@ -59,4 +59,17 @@ html {
   .v-card.w-auto {
     width: auto !important;
   }
+
+  .v-seller-table {
+    max-height: 48vh !important;
+    overflow: auto;
+
+    @media (max-width: 1024px) {
+      max-height: 34vh !important;
+    }
+
+    @media (max-width: 640px) {
+      max-height: 44vh !important;
+    }
+  }
 }
