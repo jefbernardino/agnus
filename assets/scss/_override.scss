@@ -60,6 +60,63 @@ html {
     width: auto !important;
   }
 
+  .img-responsive {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  // MODS FORM PEDIDOS
+  .v-fullwidth-form {
+    @media (max-width: 640px) {
+      margin: 0 !important;
+      padding: 0 !important;
+
+      overflow: unset !important;
+
+      .v-container, .v-card {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .v-card-text {
+        padding: 20px 10px 30px !important;
+      }
+
+      .v-table {
+        height: 100vh;
+
+        thead {
+          display: none !important;
+        }
+
+        tr {
+          display: initial;
+
+          td {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            height: auto;
+            min-height: 48px;
+
+            &:last-child {
+              margin-bottom: 16px;
+            }
+          }
+        }
+
+        th:first-child, td:first-child {
+          display: none !important;
+        }
+
+        input {
+          width: 100px;
+        }
+      }
+    }
+  }
+
   .v-seller-table {
     max-height: 48vh !important;
     overflow: auto;
@@ -69,7 +126,12 @@ html {
     }
 
     @media (max-width: 640px) {
-      max-height: 44vh !important;
+      //max-height: 44vh !important;
+      height: auto !important;
+      max-height: none !important;
+
+      position: sticky;
+      top: 60px;
     }
   }
 }

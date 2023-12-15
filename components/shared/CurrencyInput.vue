@@ -3,6 +3,7 @@
     :name="name"
     :class="class"
     :density="density"
+    :placeholder="placeholder"
     ref="inputRef"
     variant="outlined"
   ></v-text-field>
@@ -18,7 +19,8 @@ export default {
     name: String,
     class: String,
     density: String,
-    options: Object
+    options: Object,
+    placeholder: String,
   },
   setup(props) {
     const { inputRef } = useCurrencyInput(props.options)

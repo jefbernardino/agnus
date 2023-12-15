@@ -44,6 +44,10 @@ onMounted(setUser)
 import moment from "moment";
 import { createToast } from "mosha-vue-toastify";
 
+definePageMeta({
+  layout: "form",
+});
+
 export default {
   data() {
     return {
@@ -290,6 +294,7 @@ export default {
                     useGrouping: true,
                     accountingSign: false
                   }"
+                  placeholder="Espessura"
                   @blur="setTicknessValue($event, index, item)"
                 />
               </td>
@@ -309,6 +314,7 @@ export default {
                     useGrouping: true,
                     accountingSign: false
                   }"
+                  placeholder="Quantidade"
                   @blur="setQuantityValue($event, index, item)"
                 />
               </td>
@@ -328,6 +334,7 @@ export default {
                     useGrouping: true,
                     accountingSign: false,
                   }"
+                  placeholder="Valor"
                   @blur="setPriceValue($event, index, item)"
                 />
               </td>

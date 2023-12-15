@@ -1,11 +1,11 @@
 <template>
   <v-container class="primary fullscreen pa-12" fluid>
-    <v-card class="mx-auto px-6 pt-4 pb-8 text-center">
+    <v-card class="mx-auto px-4 pt-4 pb-8 text-center">
       <v-form
           v-model="form"
           @submit.prevent="onSubmit"
       >
-        <img src="@/assets/images/logo.png" alt="Agnus Plast" />
+        <img src="@/assets/images/logo.png" alt="Agnus Plast" class="img-responsive" />
         <v-radio-group v-model="profile" inline>
           <template v-slot:label>
             <div>Qual o perfil de seu usuário?</div>
