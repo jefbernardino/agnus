@@ -81,7 +81,7 @@ export default defineEventHandler(async (event) => {
 
     try {
         await transporter.sendMail({
-            from: 'contato@agnusplast.com.br',
+            from: 'Sistema de Pedidos da Agnus Plast <contato@agnusplast.com.br>',
             to: [
                 'comercial@agnusplast.com.br',
                 'pedidos@agnusplast.com.br',
