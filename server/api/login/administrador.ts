@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
     const [rows, fields] = await event["db"].execute("" +
         "SELECT * " +
         "FROM administradores " +
-        "WHERE usuario = ? AND resgate = ?", [query.usuario, query.resgate]);
+        "WHERE usuario = ? AND resgate = ? AND ativo = ? AND id > 0", [query.usuario, query.resgate, 1]);
 
     return {
         // status: res.statusCode,
