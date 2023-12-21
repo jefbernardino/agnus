@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
     const [rows, fields] = await event["db"].execute("SELECT c.*, v.nome as vendedor " +
         "FROM clientes c " +
         "INNER JOIN vendedores v ON c.vendedor_id = v.id " +
-        "ORDER BY c.nome"
+        "WHERE c.id > 0 ORDER BY c.nome"
     );
 
     return {
