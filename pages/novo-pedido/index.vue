@@ -156,10 +156,11 @@ export default {
       }
     },
     async setPriceValue(inputValue, indexValue, item) {
-      let formattedValue = parseFloat(inputValue.target.value.replace('.','').replace(',','.'))
-      let formattedInputValue = parseFloat(inputValue.replace('.','').replace(',','.'))
-
-      let value = isNaN(inputValue) ? formattedValue : formattedInputValue
+      // let formattedValue = parseFloat(inputValue.target.value.replace('.','').replace(',','.'))
+      // let formattedInputValue = parseFloat(inputValue.replace('.','').replace(',','.'))
+      //
+      // let value = isNaN(inputValue) ? formattedValue : formattedInputValue
+      let value = isNaN(inputValue) ? inputValue.target.value : inputValue
       this.formData.produtos[indexValue] = {
         ...this.formData.produtos[indexValue],
         produto_id: item.id,
